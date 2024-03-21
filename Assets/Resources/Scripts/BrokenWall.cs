@@ -11,7 +11,7 @@ public class BrokenWall : MonoBehaviour
     void Start()
     {
         rb = Ball.Instance.GetComponent<Rigidbody2D>();
-        col = rb.GetComponent<Collider2D>();
+        col = GetComponent<Collider2D>();
         rbSpeed = rb.velocity;
         limitedSpeed = brokenWallConfig.criticalVelocity;
 
@@ -26,7 +26,6 @@ public class BrokenWall : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("123");
         if (other == null) return;
         //TODO
         col.enabled = false; return;

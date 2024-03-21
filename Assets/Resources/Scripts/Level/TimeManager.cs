@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 简单写个关卡内记录时间的东西，作为Manager的示例
 /// </summary>
-public class TimeManager : AbstractManager
+public class TimeManager : AbstractManagerInLevel
 {
     private TimeManager instance;
     public TimeManager Instance

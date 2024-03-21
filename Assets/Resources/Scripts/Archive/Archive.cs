@@ -13,6 +13,7 @@ public static class Archive
     /// 根据传入的键从<see cref="data"/>获取相应的值
     /// </summary>
     /// <returns>是个string，请自行转换谢谢喵</returns>
+    /// <exception cref="System.Exception"/>
     public static string GetData(string key)
     {
         if (data.ContainsKey(key)) return data[key];

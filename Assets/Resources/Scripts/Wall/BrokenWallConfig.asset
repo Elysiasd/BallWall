@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BrokenWallConfig
   m_EditorClassIdentifier: 
   bounce: 0.848
-  criticalVelocity: 0
+  criticalVelocity: 10

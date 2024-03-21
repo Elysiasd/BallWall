@@ -21,4 +21,10 @@ public class LevelManager : MonoBehaviour
         //初始化排序后的Manager
         foreach (AbstractManagerInLevel manager in managers) manager.Init();
     }
+
+    [SerializeField] private string levelName;
+    public string LevelName => levelName;
+
+    public event Action OnClear;
+    public void Clear() => OnClear?.Invoke();
 }

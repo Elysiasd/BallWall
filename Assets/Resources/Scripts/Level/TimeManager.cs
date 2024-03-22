@@ -7,8 +7,8 @@ using UnityEngine;
 /// </summary>
 public class TimeManager : AbstractManagerInLevel
 {
-    private TimeManager instance;
-    public TimeManager Instance
+    private static TimeManager instance;
+    public static TimeManager Instance
     {
         get
         {

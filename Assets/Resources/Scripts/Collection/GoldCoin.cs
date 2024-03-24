@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GoldCoin : BaseCollection
 {
-    protected override string colName => "Money";
+    protected override string colName => CollectionName.Money;
 
     protected override void Start()
     {
@@ -13,7 +13,7 @@ public class GoldCoin : BaseCollection
     }
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("1234");
+        //Debug.Log("1234");
         base.OnTriggerEnter2D(other);
     }
 }

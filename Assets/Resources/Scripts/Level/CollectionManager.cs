@@ -17,29 +17,32 @@ public class CollectionManager : AbstractManagerInLevel
         }
     }
 
-    public Dictionary<string, int> collections;
-    public Dictionary<string, int> startCnt;
+    private Dictionary<string, int> collections;
+    private Dictionary<string, int> startCnt;
 
     public override int Order => 2;
     public override void Init()
     {
         instance = this;
         collections = new Dictionary<string, int>();
-        startCnt = new Dictionary<string, int>();   
-        Debug.Log(2);
+        startCnt = new Dictionary<string, int>();
     }
 
     public void Collect(string key)
     {
-        if (!collections.ContainsKey(key)) { collections.Add(key, 1); }
-
-        else { collections[key]++; }
+        collections[key]++;
     }
-
+    public int CollectionNum(string key)
+    {
+        return collections[key];
+    }
     public void StartCnt(string key)
     {
-        if (!startCnt.ContainsKey(key)) { startCnt.Add(key,1); }
-
+        if (!startCnt.ContainsKey(key))
+        {
+            startCnt.Add(key, 1);
+            collections.Add(key, 0);
+        }
         else { startCnt[key]++; }
     }
 }

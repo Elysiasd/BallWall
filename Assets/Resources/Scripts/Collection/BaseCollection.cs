@@ -8,7 +8,7 @@ using UnityEngine;
 public abstract class BaseCollection : MonoBehaviour
 {
     [SerializeField]protected AudioClip clip;
-    protected abstract string colName { get; }
+    protected abstract  string colName { get; }
     private CollectionManager collectionManager;
 
     protected virtual void Start()

@@ -10,14 +10,17 @@ public class BrokenWall : MonoBehaviour
 
         col = GetComponent<Collider2D>();
 
-        Ball.Instance.OnBallReachVelocity += () => col.isTrigger = true;
-        Ball.Instance.OnBallReturnVelocity += () => col.isTrigger = false;
+        Ball.Instance.OnBallReachVelocity += IsTrigger;
+        Ball.Instance.OnBallReturnVelocity += IsCollider;
     }
+    private void IsTrigger() => col.isTrigger = true;
+
+    private void IsCollider() => col.isTrigger = false;
 
     private void OnDestroy()
     {
-        Ball.Instance.OnBallReachVelocity -= () => col.isTrigger = true;
-        Ball.Instance.OnBallReturnVelocity -= () => col.isTrigger = false;
+        Ball.Instance.OnBallReachVelocity -= IsTrigger;
+        Ball.Instance.OnBallReturnVelocity -= IsCollider;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

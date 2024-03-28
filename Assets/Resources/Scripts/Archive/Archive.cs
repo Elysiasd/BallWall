@@ -64,4 +64,6 @@ public static class Archive
         }
         else throw new System.Exception("存档不存在");
     }
+
+    public static string Soul => "Soul";
 }

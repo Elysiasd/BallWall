@@ -1,10 +1,11 @@
+using Common;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public class PlayerToBallManager : MonoBehaviour
+public class PlayerToBallManager : MonoSingleton<PlayerToBallManager>
 {
     private Rigidbody2D rb;
     private Vector2 force;
@@ -19,21 +20,23 @@ public class PlayerToBallManager : MonoBehaviour
         ballAction.Common.Read.started += ctx =>
         {
             mouseDownPos = ballAction.Common.Move.ReadValue<Vector2>();
-            Debug.Log(1);
+            
         };
             ballAction.Common.Read.canceled += ctx =>
         {
             mouseUpPos = ballAction.Common.Move.ReadValue<Vector2>();
             force = mouseUpPos - mouseDownPos;
             rb.AddForce(force);
-            Debug.Log(2);
+            
         };
         rb = Ball.Instance.GetComponent<Rigidbody2D>();
     }
 
     private void OnDisable()
     {
-        ballAction.Disable();
+        DisableInput();
     }
-   
+    public void DisableInput() => ballAction.Disable();
+    public void EnableInput() => ballAction.Enable();
+
 }

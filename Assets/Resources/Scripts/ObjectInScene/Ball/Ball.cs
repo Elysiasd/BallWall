@@ -45,6 +45,6 @@ public class Ball : MonoSingleton<Ball>
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Wall")){ OnBallCollision?.Invoke(); }
-        Debug.Log(CollisionManager.Instance.CollisionCnt);
+        //Debug.Log(CollisionManager.Instance.CollisionCnt);
     }
 }

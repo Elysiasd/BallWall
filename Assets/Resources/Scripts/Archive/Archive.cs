@@ -13,12 +13,8 @@ public static class Archive
     /// 根据传入的键从<see cref="data"/>获取相应的值
     /// </summary>
     /// <returns>是个string，请自行转换谢谢喵</returns>
-    /// <exception cref="System.Exception"/>
-    public static string GetData(string key)
-    {
-        if (data.ContainsKey(key)) return data[key];
-        else throw new System.Exception($"未找到{key}，请检查存档或键");
-    }
+    /// <param name="def">默认值，如果没有找到键则返回默认值</param>
+    public static string GetData(string key, string def) => data.ContainsKey(key) ? data[key] : def;
     /// <summary>
     /// 根据传入的键向<see cref="data"/>写入相应的值
     /// </summary>

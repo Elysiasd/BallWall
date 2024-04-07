@@ -20,14 +20,7 @@ public class SoulManager : AbstractManagerInGame
     {
         instance = this;
 
-        try
-        {
-            Soul = int.Parse(Archive.GetData(Archive.Soul));
-        }
-        catch
-        {
-            Soul = 0;
-        }
+        Soul = int.Parse(Archive.GetData(Archive.Soul, "0"));
     }
 
     private int soul;
@@ -44,8 +37,8 @@ public class SoulManager : AbstractManagerInGame
         }
         private set
         {
-            Archive.SetData(Archive.Soul, value.ToString());
             soul = value;
+            Archive.SetData(Archive.Soul, soul.ToString());
         }
     }
 

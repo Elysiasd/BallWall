@@ -38,14 +38,7 @@ public class TimeManager : AbstractManagerInLevel
     }
     private void Record()
     {
-        try
-        {
-            if (float.Parse(Archive.GetData(LevelManager.Instance.LevelName)) > timer)
-            {
-                Archive.SetData(LevelManager.Instance.LevelName, timer.ToString("F2"));
-            }
-        }
-        catch
+        if (float.Parse(Archive.GetData(LevelManager.Instance.LevelName, "0")) > timer)
         {
             Archive.SetData(LevelManager.Instance.LevelName, timer.ToString("F2"));
         }

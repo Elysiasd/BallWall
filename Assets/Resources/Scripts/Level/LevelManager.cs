@@ -22,8 +22,9 @@ public class LevelManager : MonoBehaviour
         foreach (AbstractManagerInLevel manager in managers) manager.Init();
     }
 
-    [SerializeField] private string levelName;
-    public string LevelName => levelName;
+    [SerializeField] private LevelConfig config;
+
+    public string LevelName => config?.levelName ?? "芝士关卡名称";
 
     public event Action OnClear;
     public void Clear() => OnClear?.Invoke();

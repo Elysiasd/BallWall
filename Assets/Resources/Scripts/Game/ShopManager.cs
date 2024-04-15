@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopManager : AbstractManagerInLevel
+public class ShopManager : AbstractManagerInGame
 {
     private static ShopManager instance;
     public static ShopManager Instance
@@ -13,7 +13,7 @@ public class ShopManager : AbstractManagerInLevel
             else throw new System.Exception("未找到ShopManager单例，请检查场景或初始化顺序");
         }
     }
-    public override int Order => 1;
+    public override int Order => 8;
     public override void Init()
     {
         instance = this;

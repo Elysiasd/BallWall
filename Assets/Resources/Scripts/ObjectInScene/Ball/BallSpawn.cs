@@ -7,11 +7,18 @@ public class BallSpawn : MonoBehaviour
 {
     [SerializeField] private List<GameObject> spawnList;
     public List<GameObject> SpawnList => spawnList;
-    private GameObject spawnPrefab;
+    private GameObject ball;
+     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Born(0);
+        
+    }
+
+    private void Start()
+    {
+        CameraManager.Instance.VirtualCamera.Follow = ball.transform;
     }
 
     // Update is called once per frame
@@ -22,7 +29,7 @@ public class BallSpawn : MonoBehaviour
 
     public void Born(int index)
     {
-        CameraManager.Instance.VirtualCamera.Follow = Instantiate(SpawnList[index],transform).transform;
+        ball = Instantiate(SpawnList[index],transform);
     }
 
     

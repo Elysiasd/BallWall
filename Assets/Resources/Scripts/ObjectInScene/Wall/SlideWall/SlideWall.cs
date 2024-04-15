@@ -24,7 +24,7 @@ public class SlideWall : MonoBehaviour
         // 获取子物体上的MoveAlongEdge脚本
         moveScript = GetComponentInChildren<MoveAlongEdge>();
         moveScript.BallExit += () => { isBallCollison = false; ballRb.velocity = initialRelativeVelocity.magnitude *
-            (points[points.Length - 1] - points[points.Length - 2]).normalized * config.finalSpeedRate; } ;
+            (points[^1] - points[^2]).normalized * config.finalSpeedRate; } ;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -72,6 +72,6 @@ public class SlideWall : MonoBehaviour
         Gizmos.color = Color.yellow;
         edgeCollider = GetComponent<EdgeCollider2D>();
         points = edgeCollider.points;
-        Gizmos.DrawSphere(transform.position+(Vector3)points[points.Length - 1], 1f);
+        Gizmos.DrawSphere(transform.position+(Vector3)points[^1], 1f);
     }
 }

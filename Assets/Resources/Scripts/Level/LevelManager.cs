@@ -12,6 +12,11 @@ public class LevelManager : MonoBehaviour
         Instance = this;
         InitManagers();
     }
+    private void Start()
+    {
+        //调试时，实际应放在Awake里面
+        UIManager.Instance.ActivateTarget().Show(config.time, config.interact, config.collection);
+    }
     private void InitManagers()
     {
         //寻找场景中的Manager

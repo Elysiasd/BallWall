@@ -7,7 +7,7 @@ public class LevelConfig : ScriptableObject
     [Header("关卡名称")]
     public string levelName;
     [Header("评级标准")]
-    public float time;
+    public int time;
     public int interact;
     public int collection;
 }

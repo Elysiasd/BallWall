@@ -1,4 +1,4 @@
-using Common;
+ï»¿using Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,43 +8,54 @@ using UnityEngine;
 public class Ball : MonoSingleton<Ball>
 {
     /// <summary>
-    /// ×²µ½Ç½µÄÊÂ¼ş
+    /// æ’åˆ°å¢™çš„äº‹ä»¶
     /// </summary>
     public event Action OnBallCollision;
-    private Rigidbody2D rb;
-    
+
+    public float velocity { get; private set; }
+    private Vector2 curPos;
+    private Vector2 lastPos;
+
+    public ParticleSystem[] Effs { get; private set; }
+
     /// <summary>
-    /// µ¯Öé´ïµ½Ç½±Ú±»ÆÆ»µËÙ¶È
+    /// å¼¹ç è¾¾åˆ°å¢™å£è¢«ç ´åé€Ÿåº¦
     /// </summary>
     public event Action OnBallReachVelocity;
     /// <summary>
-    /// µ¯ÖéËÙ¶È½µµÍÖÁ²»ÄÜÆÆ»µÇ½±Ú
+    /// å¼¹ç é€Ÿåº¦é™ä½è‡³ä¸èƒ½ç ´åå¢™å£
     /// </summary>
     public event Action OnBallReturnVelocity;
     private bool velocityReached;
     [SerializeField] private BrokenWallConfig wallConfig;
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        Effs = GetComponentsInChildren<ParticleSystem>();
 
         velocityReached = false;
+        curPos = lastPos = transform.position;
     }
     private void FixedUpdate()
     {
-        if (!velocityReached && rb.velocity.magnitude > wallConfig.criticalVelocity)
+        curPos = transform.position;
+        velocity = Vector2.Distance(curPos, lastPos) / Time.fixedDeltaTime;
+        lastPos = curPos;
+        if (!velocityReached && velocity > wallConfig.criticalVelocity)
         {
             velocityReached = true;
             OnBallReachVelocity?.Invoke();
+            foreach (ParticleSystem p in Effs) p.Play();
         }
-        if (velocityReached && rb.velocity.magnitude < wallConfig.criticalVelocity)
+        if (velocityReached && velocity < wallConfig.criticalVelocity)
         {
             velocityReached = false;
             OnBallReturnVelocity?.Invoke();
+            foreach (ParticleSystem p in Effs) p.Stop();
         }
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Wall")){ OnBallCollision?.Invoke(); }
+        if (other.gameObject.CompareTag("Wall")) { OnBallCollision?.Invoke(); }
         //Debug.Log(CollisionManager.Instance.CollisionCnt);
     }
 }

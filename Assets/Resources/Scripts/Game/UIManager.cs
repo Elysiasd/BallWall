@@ -26,4 +26,12 @@ public class UIManager : AbstractManagerInGame
         target.gameObject.SetActive(true);
         return target;
     }
+
+    [SerializeField] private Timer timer;
+    public Timer Timer => timer;
+    public Timer ActivateTimer()
+    {
+        timer.gameObject.SetActive(true);
+        return timer;
+    }
 }

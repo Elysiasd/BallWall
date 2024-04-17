@@ -14,21 +14,19 @@ public class PlayerToBallManager : MonoSingleton<PlayerToBallManager>
     private BallAction ballAction;
     void Start()
     {
-
         ballAction = new BallAction();
-        ballAction.Enable();
         ballAction.Common.Read.started += ctx =>
         {
             mouseDownPos = ballAction.Common.Move.ReadValue<Vector2>();
-            
+
         };
-            ballAction.Common.Read.canceled += ctx =>
-        {
-            mouseUpPos = ballAction.Common.Move.ReadValue<Vector2>();
-            force = mouseUpPos - mouseDownPos;
-            rb.AddForce(force);
-            
-        };
+        ballAction.Common.Read.canceled += ctx =>
+    {
+        mouseUpPos = ballAction.Common.Move.ReadValue<Vector2>();
+        force = mouseUpPos - mouseDownPos;
+        rb.AddForce(force);
+
+    };
         rb = Ball.Instance.GetComponent<Rigidbody2D>();
     }
 

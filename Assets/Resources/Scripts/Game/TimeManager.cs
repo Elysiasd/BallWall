@@ -35,6 +35,8 @@ public class TimeManager : AbstractManagerInGame
     public void Resume() => pause = false;
     public void Begin()
     {
+        LevelManager.Instance.OnClear += Pause;
+
         timer = 0;
         pause = false;
     }

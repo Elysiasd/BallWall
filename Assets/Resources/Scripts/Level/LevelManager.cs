@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : AbstractFSM
 {
     private AbstractManagerInLevel[] managers;
     public static LevelManager Instance { get; private set; }
@@ -11,7 +11,18 @@ public class LevelManager : MonoBehaviour
     {
         Instance = this;
         InitManagers();
+
+        states.Add(typeof(LevelStates.Target), new LevelStates.Target());
+        states.Add(typeof(LevelStates.Run), new LevelStates.Run());
+        states.Add(typeof(LevelStates.Pause), new LevelStates.Pause());
+        states.Add(typeof(LevelStates.Settle), new LevelStates.Settle());
     }
+    private void Start()
+    {
+        //调试用，应该放在Awake中
+        SwitchState(typeof(LevelStates.Target));
+    }
+
     private void InitManagers()
     {
         //寻找场景中的Manager
@@ -22,9 +33,18 @@ public class LevelManager : MonoBehaviour
         foreach (AbstractManagerInLevel manager in managers) manager.Init();
     }
 
-    [SerializeField] private string levelName;
-    public string LevelName => levelName;
+    [SerializeField] private LevelConfig config;
+
+    public string LevelName => config.levelName;
 
     public event Action OnClear;
     public void Clear() => OnClear?.Invoke();
+
+    public void ShowTarget() => StartCoroutine(ShowTargetCoroutine());
+    private IEnumerator ShowTargetCoroutine()
+    {
+        UIManager.Instance.ActivateTarget().Show(config.time, config.interact, config.collection);
+        yield return new WaitUntil(() => UIManager.Instance.Target.shrunk);
+        SwitchState(typeof(LevelStates.Run));
+    }
 }

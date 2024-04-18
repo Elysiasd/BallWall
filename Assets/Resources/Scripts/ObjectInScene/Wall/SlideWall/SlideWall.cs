@@ -34,6 +34,9 @@ public class SlideWall : MonoBehaviour
         isBallCollison=true;
         ballRb = collision.gameObject.GetComponent<Rigidbody2D>();
         initialRelativeVelocity = collision.relativeVelocity;
+
+        Ball.Instance.Sliding(true, initialRelativeVelocity.magnitude);
+
         ballRb.velocity = Vector2.zero;
         Vector2 collisionPoint = collision.GetContact(0).point;
 

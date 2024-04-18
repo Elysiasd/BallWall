@@ -6,5 +6,7 @@ using UnityEngine;
 public class BrokenWallConfig : BaseWallConfig
 {
     [Header("墙壁破碎临界速度")]
-    public float criticalVelocity;
+    [Min(0)]public float criticalVelocity;
+    [Header("撞墙削减速度")]
+    [Range(0,1)]public float speedSlowRate;
 }

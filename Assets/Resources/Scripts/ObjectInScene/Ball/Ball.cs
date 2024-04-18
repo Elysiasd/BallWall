@@ -12,7 +12,7 @@ public class Ball : MonoSingleton<Ball>
     /// </summary>
     public event Action OnBallCollision;
     private Rigidbody2D rb;
-    
+
     /// <summary>
     /// 弹珠达到墙壁被破坏速度
     /// </summary>
@@ -44,7 +44,20 @@ public class Ball : MonoSingleton<Ball>
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Wall")){ OnBallCollision?.Invoke(); }
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            OnBallCollision?.Invoke();
+        }
+
+        //Debug.Log(CollisionManager.Instance.CollisionCnt);
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            rb.velocity *= 1-wallConfig.speedSlowRate;
+        }
+
         //Debug.Log(CollisionManager.Instance.CollisionCnt);
     }
 }

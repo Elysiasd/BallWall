@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class Ball : MonoSingleton<Ball>
 {
+    /// <summary>
+    /// 撞到墙的事件
+    /// </summary>
     public event Action OnBallCollision;
 
     private float velocity;
@@ -16,7 +19,13 @@ public class Ball : MonoSingleton<Ball>
     public Rigidbody2D RB { get; private set; }
     public ParticleSystem[] Effs { get; private set; }
 
+    /// <summary>
+    /// 弹珠达到墙壁被破坏速度
+    /// </summary>
     public event Action OnBallReachVelocity;
+    /// <summary>
+    /// 弹珠速度降低至不能破坏墙壁
+    /// </summary>
     public event Action OnBallReturnVelocity;
     private bool velocityReached;
     [SerializeField] private BrokenWallConfig wallConfig;

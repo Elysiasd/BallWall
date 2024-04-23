@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1667929685833964726}
   - component: {fileID: 4631376204512036893}
   - component: {fileID: 708559733906616626}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WindFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

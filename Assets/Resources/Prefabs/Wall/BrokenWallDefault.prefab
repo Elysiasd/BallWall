@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6727865086990820447}
   - component: {fileID: 7443745810016651252}
   - component: {fileID: 8282606110502686529}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BrokenWallDefault
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1971053207 &5915112445344017877
 SpriteShapeRenderer:
@@ -151,7 +151,21 @@ MonoBehaviour:
   m_UTess2D: 1
   m_Creator: {fileID: 0}
   m_Modifiers: []
-  m_ColliderSegment: []
+  m_ColliderSegment:
+  - {x: -2.1872752, y: -0.16558163}
+  - {x: -1.834871, y: 0.14474863}
+  - {x: -1.5481768, y: 0.31965157}
+  - {x: -1.3023462, y: 0.3703471}
+  - {x: -0.9672524, y: 0.29097348}
+  - {x: -0.48049688, y: 0.08066665}
+  - {x: -0.17604122, y: 0.010406345}
+  - {x: 0.1770588, y: 0.008320287}
+  - {x: 0.5188298, y: 0.080479905}
+  - {x: 1.1105679, y: 0.29783395}
+  - {x: 1.3390102, y: 0.33295688}
+  - {x: 1.5798632, y: 0.28793567}
+  - {x: 1.8492467, y: 0.13054988}
+  - {x: 2.1882298, y: -0.1644922}
 --- !u!114 &7443745810016651252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClip: {fileID: 0}
   brokenWallConfig: {fileID: 11400000, guid: 2a932f475fe1db64fa438f5ef7565a94, type: 2}
+  destroyVFX: {fileID: 6970644482824102324, guid: 4bbc5f760cec8864a98b28acc25ff43e, type: 3}
 --- !u!68 &8282606110502686529
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -175,7 +190,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 4025744069663272765}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c3b8fda0238c448488509c658614c7f5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -201,8 +216,20 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0.25
   m_Points:
-  - {x: -2.3609285, y: 0.13772076}
-  - {x: 2.36168, y: 0.13772076}
+  - {x: -2.1872752, y: -0.16558163}
+  - {x: -1.834871, y: 0.14474863}
+  - {x: -1.5481768, y: 0.31965157}
+  - {x: -1.3023462, y: 0.3703471}
+  - {x: -0.9672524, y: 0.29097348}
+  - {x: -0.48049688, y: 0.08066665}
+  - {x: -0.17604122, y: 0.010406345}
+  - {x: 0.1770588, y: 0.008320287}
+  - {x: 0.5188298, y: 0.080479905}
+  - {x: 1.1105679, y: 0.29783395}
+  - {x: 1.3390102, y: 0.33295688}
+  - {x: 1.5798632, y: 0.28793567}
+  - {x: 1.8492467, y: 0.13054988}
+  - {x: 2.1882298, y: -0.1644922}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0

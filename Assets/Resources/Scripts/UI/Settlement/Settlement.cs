@@ -7,6 +7,7 @@ public class Settlement : MonoBehaviour
 {
     [Header("ÉèÖÃ")]
     [SerializeField] private float rollTime = 3;
+    [SerializeField] private float pauseTime = 2;
     [Header("ÆÀ¼Û")]
     [SerializeField] private Sprite[] judgement;
     [SerializeField] private Image judgeImg;
@@ -42,9 +43,14 @@ public class Settlement : MonoBehaviour
     {
         yield return new WaitUntil(() => startCount);
         LevelUp();
+
         yield return NumberRolling(config.time, time, finalTime, true);
         yield return NumberRolling(config.interact, interact, finalInteract);
         yield return NumberRolling(config.collection, collection, finalCollection);
+
+        yield return new WaitForSeconds(pauseTime);
+        LevelManager.Instance.SwitchState(typeof(LevelStates.Shop));
+        gameObject.SetActive(false);
     }
     private IEnumerator NumberRolling(int target, int final, Text text, bool less = false)
     {

@@ -33,17 +33,22 @@ public class LevelStates
     {
         public override void OnEnter()
         {
+            //关闭目标界面
+            UIManager.Instance.Target.gameObject.SetActive(false);
             //停止对球的操作
             PlayerToBallManager.Instance.DisableInput();
             //呼出结算界面
             UIManager.Instance.ActivateSettlement().Settle
-                (Mathf.FloorToInt(TimeManager.Instance.Timer),
+                (Mathf.RoundToInt(TimeManager.Instance.Timer),
                 CollisionManager.Instance.CollisionCnt,
                 CollectionManager.Instance.CollectionNum(CollectionName.Money));
         }
     }
     public class Shop : AbstractStates
     {
-
+        public override void OnEnter()
+        {
+            _ = UIManager.Instance.ActivateLevelShop();
+        }
     }
 }

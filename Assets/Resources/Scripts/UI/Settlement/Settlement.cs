@@ -40,9 +40,7 @@ public class Settlement : MonoBehaviour
         StartCoroutine(SettleCoroutine(time, interact, collection));
     private IEnumerator SettleCoroutine(int time, int interact, int collection)
     {
-        //加了动画再注释回来
-        //由动画机控制展示计数
-        //yield return new WaitUntil(() => startCount);
+        yield return new WaitUntil(() => startCount);
         LevelUp();
         yield return NumberRolling(config.time, time, finalTime, true);
         yield return NumberRolling(config.interact, interact, finalInteract);

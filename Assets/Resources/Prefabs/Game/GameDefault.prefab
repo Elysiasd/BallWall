@@ -2471,6 +2471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7158374835995800947}
   - component: {fileID: 6157697899968964469}
+  - component: {fileID: 8763371407144557076}
   m_Layer: 0
   m_Name: Settlement
   m_TagString: Untagged
@@ -2528,6 +2529,27 @@ MonoBehaviour:
   finalInteract: {fileID: 6456747195224662606}
   finalCollection: {fileID: 4576303106262356549}
   startCount: 0
+--- !u!95 &8763371407144557076
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6613562436672521912}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 93d4273e9108ee9448b2dd56e91fd968, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6679648581035252465
 GameObject:
   m_ObjectHideFlags: 0

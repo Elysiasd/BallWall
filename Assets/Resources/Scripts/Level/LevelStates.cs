@@ -42,4 +42,8 @@ public class LevelStates
                 CollectionManager.Instance.CollectionNum(CollectionName.Money));
         }
     }
+    public class Shop : AbstractStates
+    {
+
+    }
 }

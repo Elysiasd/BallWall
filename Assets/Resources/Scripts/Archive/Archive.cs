@@ -58,7 +58,10 @@ public static class Archive
                 sr.Close();
             }
         }
-        else throw new System.Exception("存档不存在");
+        else //throw new System.Exception("存档不存在");
+        {
+            File.Create(filePath).Close();
+        }
     }
 
     public static string Soul => "Soul";

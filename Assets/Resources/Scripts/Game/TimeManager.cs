@@ -21,15 +21,15 @@ public class TimeManager : AbstractManagerInGame
     {
         instance = this;
 
-        timer = 0;
+        Timer = 0;
     }
 
     private bool pause;
-    public float timer { get; private set; }
+    public float Timer { get; private set; }
 
     private void FixedUpdate()
     {
-        if (!pause) timer += Time.fixedDeltaTime;
+        if (!pause) Timer += Time.fixedDeltaTime;
     }
     public void Pause() => pause = true;
     public void Resume() => pause = false;
@@ -37,14 +37,14 @@ public class TimeManager : AbstractManagerInGame
     {
         LevelManager.Instance.OnClear += Pause;
 
-        timer = 0;
+        Timer = 0;
         pause = false;
     }
     public void Record()
     {
-        if (float.Parse(Archive.GetData(LevelManager.Instance.LevelName, "0")) > timer)
+        if (float.Parse(Archive.GetData(LevelManager.Instance.LevelName, "0")) > Timer)
         {
-            Archive.SetData(LevelManager.Instance.LevelName, timer.ToString("F2"));
+            Archive.SetData(LevelManager.Instance.LevelName, Timer.ToString("F2"));
         }
     }
 }

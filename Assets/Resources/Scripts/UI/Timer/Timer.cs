@@ -8,6 +8,6 @@ public class Timer : MonoBehaviour
     [SerializeField] private Text text;
     private void FixedUpdate()
     {
-        text.text = TimeManager.Instance.timer.ToString("F2");
+        text.text = TimeManager.Instance.Timer.ToString("F2");
     }
 }

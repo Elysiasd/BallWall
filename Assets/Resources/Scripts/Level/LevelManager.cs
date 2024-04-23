@@ -34,17 +34,14 @@ public class LevelManager : AbstractFSM
     }
 
     [SerializeField] private LevelConfig config;
+    public LevelConfig Config => config;
 
     public string LevelName => config.levelName;
 
     public event Action OnClear;
-    public void Clear() => OnClear?.Invoke();
-
-    public void ShowTarget() => StartCoroutine(ShowTargetCoroutine());
-    private IEnumerator ShowTargetCoroutine()
+    public void Clear()
     {
-        UIManager.Instance.ActivateTarget().Show(config.time, config.interact, config.collection);
-        yield return new WaitUntil(() => UIManager.Instance.Target.shrunk);
-        SwitchState(typeof(LevelStates.Run));
+        OnClear?.Invoke();
+        SwitchState(typeof(LevelStates.Settle));
     }
 }

@@ -34,4 +34,12 @@ public class UIManager : AbstractManagerInGame
         timer.gameObject.SetActive(true);
         return timer;
     }
+
+    [SerializeField] private Settlement settlement;
+    public Settlement Settlement => settlement;
+    public Settlement ActivateSettlement()
+    {
+        settlement.gameObject.SetActive(true);
+        return settlement;
+    }
 }

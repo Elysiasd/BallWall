@@ -107,6 +107,9 @@ public class MoveAlongEdge : MonoBehaviour
     {
         this.GetComponentsInChildren<Transform>()[1].parent = null;
         playerToBallManager.EnableInput();
+        
+        Ball.Instance.Sliding(false, 0);
+
         BallExit?.Invoke();
     }
 }

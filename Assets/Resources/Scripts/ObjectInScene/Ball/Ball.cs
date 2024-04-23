@@ -12,10 +12,11 @@ public class Ball : MonoSingleton<Ball>
     /// </summary>
     public event Action OnBallCollision;
 
-    public float velocity { get; private set; }
-    private Vector2 curPos;
-    private Vector2 lastPos;
+    private float velocity;
+    private bool isSliding;
+    public float Velocity=> isSliding ? velocity : RB.velocity.magnitude;
 
+    public Rigidbody2D RB { get; private set; }
     public ParticleSystem[] Effs { get; private set; }
 
     /// <summary>
@@ -30,23 +31,20 @@ public class Ball : MonoSingleton<Ball>
     [SerializeField] private BrokenWallConfig wallConfig;
     private void Start()
     {
+        RB = GetComponent<Rigidbody2D>();
         Effs = GetComponentsInChildren<ParticleSystem>();
 
         velocityReached = false;
-        curPos = lastPos = transform.position;
     }
     private void FixedUpdate()
     {
-        curPos = transform.position;
-        velocity = Vector2.Distance(curPos, lastPos) / Time.fixedDeltaTime;
-        lastPos = curPos;
-        if (!velocityReached && velocity > wallConfig.criticalVelocity)
+        if (!velocityReached && Velocity > wallConfig.criticalVelocity)
         {
             velocityReached = true;
             OnBallReachVelocity?.Invoke();
             foreach (ParticleSystem p in Effs) p.Play();
         }
-        if (velocityReached && velocity < wallConfig.criticalVelocity)
+        if (velocityReached && Velocity < wallConfig.criticalVelocity)
         {
             velocityReached = false;
             OnBallReturnVelocity?.Invoke();
@@ -55,7 +53,6 @@ public class Ball : MonoSingleton<Ball>
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Wall")) { OnBallCollision?.Invoke(); }
         if (other.gameObject.CompareTag("Wall"))
         {
             OnBallCollision?.Invoke();
@@ -67,9 +64,15 @@ public class Ball : MonoSingleton<Ball>
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            rb.velocity *= 1-wallConfig.speedSlowRate;
+            RB.velocity *= 1 - wallConfig.speedSlowRate;
         }
 
         //Debug.Log(CollisionManager.Instance.CollisionCnt);
+    }
+
+    public void Sliding(bool isSliding,float velocity)
+    {
+        this.isSliding = isSliding;
+        this.velocity = velocity;
     }
 }

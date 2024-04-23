@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5645670451559254484}
   - component: {fileID: 4754284545198535609}
   - component: {fileID: 4681056172078614378}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 8109547259521989031}
   - component: {fileID: 5632536425720182258}
   - component: {fileID: 4674885530354946021}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SlideWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

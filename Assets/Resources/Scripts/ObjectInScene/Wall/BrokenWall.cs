@@ -4,6 +4,7 @@ public class BrokenWall : MonoBehaviour
 {
     [SerializeField] private AudioClip audioClip;
     public BrokenWallConfig brokenWallConfig;
+    public GameObject destroyVFX;
     private Collider2D col;
     void Start()
     {
@@ -26,10 +27,25 @@ public class BrokenWall : MonoBehaviour
     {
         if (other == null) return;
         //TODO
-        AudioManager.Instance.PlayOneShot(audioClip);
+        if (other.gameObject.CompareTag("Ball"))
+        {
+            DestroyObject();
+        }
         
-        col.enabled = false; return;
+        
+        return;
     }
 
+    //销毁墙体并且释放粒子效果
+    private void DestroyObject()
+    {
+        AudioManager.Instance.PlayOneShot(audioClip);
+        col.enabled = false;
+        if (destroyVFX != null)
+        {
+            Instantiate(destroyVFX, transform.position, transform.rotation);
+        }
+        Destroy(gameObject);
+    }
 
 }

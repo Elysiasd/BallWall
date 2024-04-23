@@ -1,9 +1,9 @@
-ï»¿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 /// <summary>
-/// ç®€å•å†™ä¸ªå…³å¡å†…è®°å½•æ—¶é—´çš„ä¸œè¥¿ï¼Œä½œä¸ºManagerçš„ç¤ºä¾‹
+/// ¼òµ¥Ğ´¸ö¹Ø¿¨ÄÚ¼ÇÂ¼Ê±¼äµÄ¶«Î÷£¬×÷ÎªManagerµÄÊ¾Àı
 /// </summary>
 public class TimeManager : AbstractManagerInGame
 {
@@ -13,7 +13,7 @@ public class TimeManager : AbstractManagerInGame
         get
         {
             if (instance) return instance;
-            else throw new System.Exception("æœªæ‰¾åˆ°TimeManagerå•ä¾‹ï¼Œè¯·æ£€æŸ¥åœºæ™¯æˆ–åˆå§‹åŒ–é¡ºåº");
+            else throw new System.Exception("Î´ÕÒµ½TimeManagerµ¥Àı£¬Çë¼ì²é³¡¾°»ò³õÊ¼»¯Ë³Ğò");
         }
     }
     public override int Order => 2;

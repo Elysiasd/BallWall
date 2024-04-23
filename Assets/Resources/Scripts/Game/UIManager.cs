@@ -42,4 +42,12 @@ public class UIManager : AbstractManagerInGame
         settlement.gameObject.SetActive(true);
         return settlement;
     }
+
+    [SerializeField] private LevelShop levelShop;
+    public LevelShop LevelShop => levelShop;
+    public LevelShop ActivateLevelShop()
+    {
+        levelShop.gameObject.SetActive(true);
+        return levelShop;
+    }
 }

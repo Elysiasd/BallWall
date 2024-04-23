@@ -16,6 +16,7 @@ public class LevelManager : AbstractFSM
         states.Add(typeof(LevelStates.Run), new LevelStates.Run());
         states.Add(typeof(LevelStates.Pause), new LevelStates.Pause());
         states.Add(typeof(LevelStates.Settle), new LevelStates.Settle());
+        states.Add(typeof(LevelStates.Shop), new LevelStates.Shop());
     }
     private void Start()
     {

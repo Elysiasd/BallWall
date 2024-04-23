@@ -7,6 +7,7 @@ public class Settlement : MonoBehaviour
 {
     [Header("设置")]
     [SerializeField] private float rollTime = 3;
+    [SerializeField] private float pauseTime = 2;
     [Header("评价")]
     [SerializeField] private Sprite[] judgement;
     [SerializeField] private Image judgeImg;
@@ -40,13 +41,16 @@ public class Settlement : MonoBehaviour
         StartCoroutine(SettleCoroutine(time, interact, collection));
     private IEnumerator SettleCoroutine(int time, int interact, int collection)
     {
-        //加了动画再注释回来
-        //由动画机控制展示计数
-        //yield return new WaitUntil(() => startCount);
+        yield return new WaitUntil(() => startCount);
         LevelUp();
+
         yield return NumberRolling(config.time, time, finalTime, true);
         yield return NumberRolling(config.interact, interact, finalInteract);
         yield return NumberRolling(config.collection, collection, finalCollection);
+
+        yield return new WaitForSeconds(pauseTime);
+        LevelManager.Instance.SwitchState(typeof(LevelStates.Shop));
+        gameObject.SetActive(false);
     }
     private IEnumerator NumberRolling(int target, int final, Text text, bool less = false)
     {

@@ -9,31 +9,35 @@ public class CurtainBehavior : Common.MonoSingleton<CurtainBehavior>
 
     [SerializeField] private float fadeTime;
     private float timer;
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
         img = GetComponent<Image>();
         timer = 0;
     }
-    private IEnumerator Show()
+
+    public void Show() => StartCoroutine(ShowCoroutine());
+    public IEnumerator ShowCoroutine()
     {
-        StopCoroutine(Hide());
+        StopCoroutine(HideCoroutine());
         img.enabled = true;
         while (timer < fadeTime)
         {
             img.color = Color.black * (timer / fadeTime);
-            timer += Time.unscaledDeltaTime;
+            timer += Time.deltaTime;
             yield return null;
         }
         timer = fadeTime;
         img.color = Color.black;
     }
-    private IEnumerator Hide()
+    public void Hide() => StartCoroutine(HideCoroutine());
+    public IEnumerator HideCoroutine()
     {
-        StopCoroutine(Show());
+        StopCoroutine(ShowCoroutine());
         while (timer > 0)
         {
             img.color = Color.black * (timer / fadeTime);
-            timer -= Time.unscaledDeltaTime;
+            timer -= Time.deltaTime;
             yield return null;
         }
         img.enabled = false;

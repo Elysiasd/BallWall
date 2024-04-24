@@ -19,6 +19,7 @@ public class UIManager : AbstractManagerInGame
         instance = this;
     }
 
+    [Header("UI")]
     [SerializeField] private Target target;
     public Target Target => target;
     public Target ActivateTarget()
@@ -49,5 +50,27 @@ public class UIManager : AbstractManagerInGame
     {
         levelShop.gameObject.SetActive(true);
         return levelShop;
+    }
+
+    public void DisableAll()
+    {
+        target.gameObject.SetActive(false);
+        timer.gameObject.SetActive(false);
+        settlement.gameObject.SetActive(false);
+        levelShop.gameObject.SetActive(false);
+    }
+
+    [Header("配置")]
+    [SerializeField] private float fadeTime = 1;
+
+    public void Continue() => StartCoroutine(ContinueCoroutine());
+    public IEnumerator ContinueCoroutine()
+    {
+        yield return CurtainBehavior.Instance.ShowCoroutine();
+        if (GameManager.Instance.LevelUp())
+        {
+            yield return CurtainBehavior.Instance.HideCoroutine();
+            LevelManager.Instance.SwitchState(typeof(LevelStates.Target));
+        }
     }
 }

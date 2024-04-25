@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: f6132e956eaa5ec43a80dc7d760093c7, type: 2}
-  breakTime: 0
+  breakTime: 0.5
   connectedDoorTrans: {fileID: 2575410738321396102}
 --- !u!1 &4659355618217023010
 GameObject:
@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: f6132e956eaa5ec43a80dc7d760093c7, type: 2}
-  breakTime: 0
+  breakTime: 0.5
   connectedDoorTrans: {fileID: 3624292601254757100}
 --- !u!1 &5240534246316146609
 GameObject:
@@ -327,5 +327,5 @@ Transform:
   - {fileID: 3624292601254757100}
   - {fileID: 2575410738321396102}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

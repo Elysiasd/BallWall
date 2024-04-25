@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class LevelStates
 {
+    public class Wait : AbstractStates
+    {
+        public override void OnEnter()
+        {
+            UIManager.Instance.DisableAll();
+        }
+    }
     public class Target : AbstractStates
     {
         public override void OnEnter()
@@ -33,8 +40,8 @@ public class LevelStates
     {
         public override void OnEnter()
         {
-            //关闭目标界面
-            UIManager.Instance.Target.gameObject.SetActive(false);
+            //关闭界面
+            UIManager.Instance.DisableAll();
             //停止对球的操作
             PlayerToBallManager.Instance.DisableInput();
             //呼出结算界面

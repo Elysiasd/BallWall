@@ -12,6 +12,7 @@ public class LevelManager : AbstractFSM
         Instance = this;
         InitManagers();
 
+        states.Add(typeof(LevelStates.Wait), new LevelStates.Wait());
         states.Add(typeof(LevelStates.Target), new LevelStates.Target());
         states.Add(typeof(LevelStates.Run), new LevelStates.Run());
         states.Add(typeof(LevelStates.Pause), new LevelStates.Pause());
@@ -21,13 +22,13 @@ public class LevelManager : AbstractFSM
     private void Start()
     {
         //调试用，应该放在Awake中
-        SwitchState(typeof(LevelStates.Target));
+        SwitchState(typeof(LevelStates.Wait));
     }
 
     private void InitManagers()
     {
-        //寻找场景中的Manager
-        managers = FindObjectsByType<AbstractManagerInLevel>(FindObjectsSortMode.None);
+        //寻找子物体的Manager
+        managers = GetComponentsInChildren<AbstractManagerInLevel>();
         //升序排列各Manager
         Array.Sort(managers, (a, b) => a.Order - b.Order);
         //初始化排序后的Manager

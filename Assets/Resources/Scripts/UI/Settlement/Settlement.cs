@@ -23,13 +23,15 @@ public class Settlement : MonoBehaviour
     private float interval;
     private int num;
 
-    private int judgeIdx = -1;
+    private int judgeIdx;
 
     [HideInInspector] public bool startCount;
 
     private LevelConfig config => LevelManager.Instance.Config;
     private void OnEnable()
     {
+        judgeIdx = 0;
+
         targetTime.text = config.time.ToString();
         targetInteract.text = config.interact.ToString();
         targetCollection.text = config.collection.ToString();
@@ -41,6 +43,7 @@ public class Settlement : MonoBehaviour
         StartCoroutine(SettleCoroutine(time, interact, collection));
     private IEnumerator SettleCoroutine(int time, int interact, int collection)
     {
+        judgeImg.sprite = judgement[0];
         yield return new WaitUntil(() => startCount);
         LevelUp();
 

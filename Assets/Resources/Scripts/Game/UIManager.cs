@@ -20,51 +20,59 @@ public class UIManager : AbstractManagerInGame
     }
 
     [Header("UI")]
+    [SerializeField] private Transform canvas;
+
     [SerializeField] private Target target;
-    public Target Target => target;
+    private Target _target;
+    public Target Target => _target;
     public Target ActivateTarget()
     {
-        target.gameObject.SetActive(true);
-        return target;
+        _target = Instantiate(target.gameObject, canvas).GetComponent<Target>();
+        return _target;
     }
 
     [SerializeField] private Timer timer;
-    public Timer Timer => timer;
+    private Timer _timer;
+    public Timer Timer => _timer;
     public Timer ActivateTimer()
     {
-        timer.gameObject.SetActive(true);
-        return timer;
+        _timer = Instantiate(timer, canvas).GetComponent<Timer>();
+        return _timer;
     }
 
     [SerializeField] private Settlement settlement;
-    public Settlement Settlement => settlement;
+    private Settlement _settlement;
+    public Settlement Settlement => _settlement;
     public Settlement ActivateSettlement()
     {
-        settlement.gameObject.SetActive(true);
-        return settlement;
+        _settlement = Instantiate(settlement, canvas).GetComponent<Settlement>();
+        return _settlement;
     }
 
     [SerializeField] private LevelShop levelShop;
-    public LevelShop LevelShop => levelShop;
+    private LevelShop _levelShop;
+    public LevelShop LevelShop => _levelShop;
     public LevelShop ActivateLevelShop()
     {
-        levelShop.gameObject.SetActive(true);
-        return levelShop;
+        _levelShop = Instantiate(levelShop, canvas).GetComponent<LevelShop>();
+        return _levelShop;
     }
 
     public void DisableAll()
     {
-        target.gameObject.SetActive(false);
-        timer.gameObject.SetActive(false);
-        settlement.gameObject.SetActive(false);
-        levelShop.gameObject.SetActive(false);
+        if (_target != null) Destroy(_target.gameObject);
+        if (_timer != null) Destroy(_timer.gameObject);
+        if (_settlement != null) Destroy(_settlement.gameObject);
+        if (_levelShop != null) Destroy(_levelShop.gameObject);
+
+        _target = null;
+        _timer = null;
+        _settlement = null;
+        _levelShop = null;
     }
 
-    [Header("配置")]
-    [SerializeField] private float fadeTime = 1;
-
     public void Continue() => StartCoroutine(ContinueCoroutine());
-    public IEnumerator ContinueCoroutine()
+    private IEnumerator ContinueCoroutine()
     {
         yield return CurtainBehavior.Instance.ShowCoroutine();
         if (GameManager.Instance.LevelUp())

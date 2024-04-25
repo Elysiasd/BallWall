@@ -11,4 +11,6 @@ public class LevelShop : MonoBehaviour
     {
         money.text = ShopManager.Instance.Money.ToString();
     }
+
+    public void Continue() => UIManager.Instance.Continue();
 }

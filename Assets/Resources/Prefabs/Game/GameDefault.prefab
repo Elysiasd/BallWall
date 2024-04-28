@@ -527,6 +527,7 @@ MonoBehaviour:
   levels:
   - {fileID: 4532987152077969060, guid: 9eefb3e1b40cd154c814c990983aa22d, type: 3}
   - {fileID: 4532987152077969060, guid: 9eefb3e1b40cd154c814c990983aa22d, type: 3}
+  mainMenu: {fileID: 7200301407709118718, guid: c89e252e6adb50248aeb32f5d1e03b74, type: 3}
 --- !u!1 &8701030748852405623
 GameObject:
   m_ObjectHideFlags: 0

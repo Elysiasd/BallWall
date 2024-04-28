@@ -11,20 +11,19 @@ public class LevelManager : AbstractFSM
     {
         Instance = this;
         InitManagers();
-
+        InitStates();
+    }
+    private void InitStates()
+    {
         states.Add(typeof(LevelStates.Wait), new LevelStates.Wait());
         states.Add(typeof(LevelStates.Target), new LevelStates.Target());
         states.Add(typeof(LevelStates.Run), new LevelStates.Run());
         states.Add(typeof(LevelStates.Pause), new LevelStates.Pause());
         states.Add(typeof(LevelStates.Settle), new LevelStates.Settle());
         states.Add(typeof(LevelStates.Shop), new LevelStates.Shop());
-    }
-    private void Start()
-    {
-        //调试用，应该放在Awake中
+
         SwitchState(typeof(LevelStates.Wait));
     }
-
     private void InitManagers()
     {
         //寻找子物体的Manager

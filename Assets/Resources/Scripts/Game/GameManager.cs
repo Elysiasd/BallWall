@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : AbstractFSM
 {
     private AbstractManagerInGame[] managers;
     public static GameManager Instance { get; private set; }
@@ -13,10 +13,15 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         InitManagers();
+        InitStates();
     }
-    private void OnDestroy()
+    private void InitStates()
     {
-        Archive.Save();
+        states.Add(typeof(GameStates.Main), new GameStates.Main());
+        states.Add(typeof(GameStates.Shop), new GameStates.Shop());
+        states.Add(typeof(GameStates.Level), new GameStates.Level());
+
+        SwitchState(debug ? typeof(GameStates.Level) : typeof(GameStates.Main));
     }
     private void InitManagers()
     {
@@ -28,13 +33,10 @@ public class GameManager : MonoBehaviour
         foreach (AbstractManagerInGame manager in managers) manager.Init();
     }
 
-    private void Start()
-    {
-        //应当由开始游戏按钮调用
-        LevelInit();
-    }
+    [SerializeField] private bool debug = true;
 
     [SerializeField] private GameObject[] levels;
+    [SerializeField] private GameObject mainMenu;
 
     private GameObject curLevel;
     private int levelIdx;
@@ -61,4 +63,9 @@ public class GameManager : MonoBehaviour
         yield return CurtainBehavior.Instance.HideCoroutine();
         LevelManager.Instance.SwitchState(typeof(LevelStates.Target));
     }
+
+    private GameObject menu;
+    public void CreateMainMenu() => menu =
+        Instantiate(mainMenu, Vector3.zero, Quaternion.identity);
+    public void DestroyMainMenu() => Destroy(menu, CurtainBehavior.Instance.FadeTime);
 }

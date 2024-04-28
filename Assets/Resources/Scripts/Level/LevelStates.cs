@@ -56,6 +56,7 @@ public class LevelStates
         public override void OnEnter()
         {
             _ = UIManager.Instance.ActivateLevelShop();
+            Archive.Save();
         }
     }
 }

@@ -8,6 +8,7 @@ public class CurtainBehavior : Common.MonoSingleton<CurtainBehavior>
     private Image img;
 
     [SerializeField] private float fadeTime;
+    public float FadeTime => fadeTime;
     private float timer;
     protected override void Awake()
     {

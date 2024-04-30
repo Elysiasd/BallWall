@@ -37,6 +37,7 @@ public class GameManager : AbstractFSM
 
     [SerializeField] private GameObject[] levels;
     [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject gameShop;
 
     private GameObject curLevel;
     private int levelIdx;
@@ -64,8 +65,15 @@ public class GameManager : AbstractFSM
         LevelManager.Instance.SwitchState(typeof(LevelStates.Target));
     }
 
-    private GameObject menu;
-    public void CreateMainMenu() => menu =
-        Instantiate(mainMenu, Vector3.zero, Quaternion.identity);
-    public void DestroyMainMenu() => Destroy(menu, CurtainBehavior.Instance.FadeTime);
+    private GameObject curMenu;
+    public void CreateMainMenu() => StartCoroutine(CreateCoroutine(mainMenu));
+    public void CreateGameShop() => StartCoroutine(CreateCoroutine(gameShop));
+    private IEnumerator CreateCoroutine(GameObject obj)
+    {
+        yield return CurtainBehavior.Instance.ShowCoroutine();
+        curMenu = Instantiate(obj, Vector3.zero, Quaternion.identity);
+        yield return CurtainBehavior.Instance.HideCoroutine();
+        PlayerToBallManager.Instance.EnableInput();
+    }
+    public void DestroyCurMenu() => Destroy(curMenu, CurtainBehavior.Instance.FadeTime);
 }

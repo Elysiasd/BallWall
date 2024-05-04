@@ -5,9 +5,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.UIElements;
+using UnityEngine.Windows;
 
 public class PlayerToBallManager : MonoSingleton<PlayerToBallManager>
 {
+    private bool ifInput;//是否允许输入
     private Rigidbody2D rb;
     private Vector2 force;
     private Vector2 mouseDownPos;
@@ -17,6 +19,7 @@ public class PlayerToBallManager : MonoSingleton<PlayerToBallManager>
     private BallAction ballAction;
     void Start()
     {
+        ifInput = true;
         rb = Ball.Instance.GetComponent<Rigidbody2D>();
         ballAction = new BallAction();
         ballAction.Common.Read.started += ctx =>
@@ -31,15 +34,23 @@ public class PlayerToBallManager : MonoSingleton<PlayerToBallManager>
             Touchscreen ts = Touchscreen.current;
             if (ts != null)
             {
+                UnityEngine.Cursor.visible = false;
                 TouchControl tc = ts.touches[0];
                 touchDownPos = tc.startPosition.ReadValue();
+            }
+            else
+            {
+
+                UnityEngine.Cursor.visible = true;//鼠标显示
+
             }
         };
         ballAction.Common.Read.canceled += ctx =>
     {
         mouseUpPos = ballAction.Common.Move.ReadValue<Vector2>();
         force = mouseUpPos - mouseDownPos;
-        rb.AddForce(force);
+        if (ifInput) { rb.AddForce(force); }
+        
 
     };
         ballAction.Common.Read.canceled += ctx =>
@@ -51,7 +62,7 @@ public class PlayerToBallManager : MonoSingleton<PlayerToBallManager>
                 TouchControl tc = ts.touches[0];
                 touchUpPos = tc.position.ReadValue();
                 force = touchUpPos - touchDownPos;
-                rb.AddForce(force); // Applying the force to the Rigidbody
+                if (ifInput) { rb.AddForce(force); } // Applying the force to the Rigidbody
             }
         };
         
@@ -122,8 +133,15 @@ public class PlayerToBallManager : MonoSingleton<PlayerToBallManager>
         }
     }
 
+    public void BanInput()
+    {
+        ifInput = false;
+    }
 
-
+    public void ResetInput()
+    {
+        ifInput = true;
+    }
     private void OnDisable()
     {
         DisableInput();

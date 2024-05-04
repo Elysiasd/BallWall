@@ -70,6 +70,7 @@ public class GameManager : AbstractFSM
     public void CreateGameShop() => StartCoroutine(CreateCoroutine(gameShop));
     private IEnumerator CreateCoroutine(GameObject obj)
     {
+        yield return new WaitForFixedUpdate();
         yield return CurtainBehavior.Instance.ShowCoroutine();
         curMenu = Instantiate(obj, Vector3.zero, Quaternion.identity);
         yield return CurtainBehavior.Instance.HideCoroutine();

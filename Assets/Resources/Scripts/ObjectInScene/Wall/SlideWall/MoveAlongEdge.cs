@@ -27,6 +27,7 @@ public class MoveAlongEdge : MonoBehaviour
        
         // 设置移动状态为true
         isMoving = true;
+        playerToBallManager.BanInput();
         playerToBallManager.DisableInput();
         // 获取碰撞时的相对速度
         initialRelativeVelocity = relativeVelocity;
@@ -106,6 +107,7 @@ public class MoveAlongEdge : MonoBehaviour
     private void ChridrenExit()
     {
         this.GetComponentsInChildren<Transform>()[1].parent = null;
+        playerToBallManager.ResetInput();
         playerToBallManager.EnableInput();
         
         Ball.Instance.Sliding(false, 0);

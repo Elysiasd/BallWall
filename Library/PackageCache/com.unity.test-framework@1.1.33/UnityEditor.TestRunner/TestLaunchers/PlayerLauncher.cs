@@ -129,7 +129,8 @@ namespace UnityEditor.TestTools.TestRunner
 #if !UNITY_2021_2_OR_NEWER
             // Android has to be in listen mode to establish player connection
 		    // Only flip connect to host if we are older than Unity 2021.2
-            if (buildOptions.BuildPlayerOptions.target == BuildTarget.Android)
+            if (buildOptions.BuildPlayerOptions.target == BuildTarget.Android || 
+            buildOptions.BuildPlayerOptions.target == BuildTarget.HMIAndroid)
             {
                 buildOptions.BuildPlayerOptions.options &= ~BuildOptions.ConnectToHost;
             }

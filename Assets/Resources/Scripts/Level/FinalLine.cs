@@ -15,7 +15,7 @@ public class FinalLine : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ball"))
+        if (collision.CompareTag("Ball") && !collided)
         {
             LevelManager.Instance?.Clear();
             col.enabled = false;

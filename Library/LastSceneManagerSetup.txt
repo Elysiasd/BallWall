@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Drafts/FugerQL/Level-1.scene
+- path: Assets/Scenes/Drafts/SubstanceP/DefaultTestSubstanceP.scene
   isLoaded: 1
   isActive: 1
   isSubScene: 0

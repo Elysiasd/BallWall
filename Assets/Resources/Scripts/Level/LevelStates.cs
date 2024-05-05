@@ -57,6 +57,7 @@ public class LevelStates
         {
             _ = UIManager.Instance.ActivateLevelShop();
             Archive.Save();
+            Ball.Instance.DestroySelf();
         }
     }
 }

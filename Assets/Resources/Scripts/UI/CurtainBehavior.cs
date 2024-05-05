@@ -25,21 +25,25 @@ public class CurtainBehavior : Common.MonoSingleton<CurtainBehavior>
         while (timer < fadeTime)
         {
             img.color = Color.black * (timer / fadeTime);
-            timer += Time.deltaTime;
-            yield return null;
+            timer += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
         }
         timer = fadeTime;
         img.color = Color.black;
     }
-    public void Hide() => StartCoroutine(HideCoroutine());
+    public void Hide()
+    {
+        StopAllCoroutines();
+        StartCoroutine(HideCoroutine());
+    }
     public IEnumerator HideCoroutine()
     {
         StopCoroutine(ShowCoroutine());
         while (timer > 0)
         {
             img.color = Color.black * (timer / fadeTime);
-            timer -= Time.deltaTime;
-            yield return null;
+            timer -= Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
         }
         img.enabled = false;
     }

@@ -33,7 +33,7 @@ public class GameStates
         public override void OnEnter()
         {
             GameManager.Instance.LevelInit();
-            ShopManager.Instance.ResetMoney();
+            ShopManager.Instance.ResetAll();
         }
     }
 }

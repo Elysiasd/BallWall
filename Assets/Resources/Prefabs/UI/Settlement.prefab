@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b50687d3d68cb4198a0256707d334c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rollTime: 3
+  rollTime: 4
   pauseTime: 2
   judgement:
   - {fileID: 21300000, guid: 79ca7b798a793084fb508daa90f7b669, type: 3}
@@ -386,6 +386,7 @@ MonoBehaviour:
   finalTime: {fileID: 714496740130089726}
   finalInteract: {fileID: 2008830230358790317}
   finalCollection: {fileID: 9077143875462586534}
+  bonus: {fileID: 3225398627069186104}
   startCount: 0
 --- !u!95 &4316571546638166263
 Animator:
@@ -1076,7 +1077,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 114514
+  m_Text: 
 --- !u!1 &7157409001178478877
 GameObject:
   m_ObjectHideFlags: 0

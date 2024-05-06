@@ -46,13 +46,13 @@ public class PlayerToBallManager : MonoSingleton<PlayerToBallManager>
             }
         };
         ballAction.Common.Read.canceled += ctx =>
-    {
-        mouseUpPos = ballAction.Common.Move.ReadValue<Vector2>();
-        force = mouseUpPos - mouseDownPos;
-        if (ifInput) { rb.AddForce(force); }
-        
+        {
+            mouseUpPos = ballAction.Common.Move.ReadValue<Vector2>();
+            force = mouseUpPos - mouseDownPos;
+            if (ifInput) { rb.AddForce(force); }
 
-    };
+
+        };
         ballAction.Common.Read.canceled += ctx =>
         {
             // Capturing the final touch position when the touch ends
@@ -65,7 +65,7 @@ public class PlayerToBallManager : MonoSingleton<PlayerToBallManager>
                 if (ifInput) { rb.AddForce(force); } // Applying the force to the Rigidbody
             }
         };
-        
+
     }
     void Update()
     {

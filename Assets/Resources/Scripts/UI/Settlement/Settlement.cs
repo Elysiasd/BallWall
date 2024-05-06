@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,8 @@ public class Settlement : MonoBehaviour
     [SerializeField] private Text finalTime;
     [SerializeField] private Text finalInteract;
     [SerializeField] private Text finalCollection;
+    [Header("½±Àø")]
+    [SerializeField] private Text bonus;
 
     private float interval;
     private int num;
@@ -50,6 +53,9 @@ public class Settlement : MonoBehaviour
         yield return NumberRolling(config.time, time, finalTime, true);
         yield return NumberRolling(config.interact, interact, finalInteract);
         yield return NumberRolling(config.collection, collection, finalCollection);
+        yield return NumberRolling(10, bonus);
+
+        ShopManager.Instance.Attain(10);
 
         yield return new WaitForSeconds(pauseTime);
         LevelManager.Instance.SwitchState(typeof(LevelStates.Shop));
@@ -57,7 +63,7 @@ public class Settlement : MonoBehaviour
     }
     private IEnumerator NumberRolling(int target, int final, Text text, bool less = false)
     {
-        interval = rollTime / 3 / (1 + final);
+        interval = rollTime / 4 / (1 + final);
         num = 0;
         while (num < final)
         {
@@ -67,6 +73,19 @@ public class Settlement : MonoBehaviour
         }
         text.text = final.ToString();
         if ((less ^ final > target) || final == target) LevelUp();
+        yield return new WaitForSeconds(interval);
+    }
+    private IEnumerator NumberRolling(int final, Text text)
+    {
+        interval = rollTime / 4 / (1 + final);
+        num = 0;
+        while (num < final)
+        {
+            text.text = num.ToString();
+            yield return new WaitForSeconds(interval);
+            num++;
+        }
+        text.text = final.ToString();
         yield return new WaitForSeconds(interval);
     }
     private void LevelUp() => judgeImg.sprite = judgement[++judgeIdx];

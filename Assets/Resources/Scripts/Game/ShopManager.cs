@@ -14,12 +14,7 @@ public class ShopManager : AbstractManagerInGame
         }
     }
     public override int Order => 8;
-    public override void Init()
-    {
-        instance = this;
-
-        Money = 0;
-    }
+    public override void Init() => instance = this;
 
     /// <summary>
     /// 芝士关卡内货币
@@ -44,5 +39,21 @@ public class ShopManager : AbstractManagerInGame
         }
 
         return false;
+    }
+
+    public Dictionary<string, int> buffs;
+    private void ResetGoods() => buffs = new()
+    {
+        { Archive.Break,0},
+        { Archive.Wind,0},
+        { Archive.Slide,0},
+        { Archive.Bounce,0},
+        { Archive.Force,0},
+    };
+    private void ResetMoney() => Money = 0;
+    public void ResetAll()
+    {
+        ResetMoney();
+        ResetGoods();
     }
 }

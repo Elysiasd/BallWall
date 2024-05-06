@@ -14,7 +14,7 @@ public class Ball : MonoSingleton<Ball>
 
     private float velocity;
     private bool isSliding;
-    public float Velocity=> isSliding ? velocity : RB.velocity.magnitude;
+    public float Velocity => isSliding ? velocity : RB.velocity.magnitude;
 
     public Rigidbody2D RB { get; private set; }
     public ParticleSystem[] Effs { get; private set; }
@@ -70,9 +70,10 @@ public class Ball : MonoSingleton<Ball>
         //Debug.Log(CollisionManager.Instance.CollisionCnt);
     }
 
-    public void Sliding(bool isSliding,float velocity)
+    public void Sliding(bool isSliding, float velocity)
     {
         this.isSliding = isSliding;
         this.velocity = velocity;
     }
+    public void DestroySelf() => Destroy(gameObject);
 }

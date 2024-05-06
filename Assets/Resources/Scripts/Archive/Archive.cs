@@ -65,4 +65,10 @@ public static class Archive
     }
 
     public static string Soul => "Soul";
+    public static string Force => "Force";
+    public static string Bounce => "Bounce";
+    public static string Break => "Break";
+    public static string Wind => "Wind";
+    public static string Slide => "Slide";
+    public static string[] Buffs = new string[] { Slide, Force, Bounce, Break, Wind };
 }

@@ -70,7 +70,6 @@ public class UIManager : AbstractManagerInGame
         _settlement = null;
         _levelShop = null;
     }
-
     public void Continue() => StartCoroutine(ContinueCoroutine());
     private IEnumerator ContinueCoroutine()
     {
@@ -79,6 +78,10 @@ public class UIManager : AbstractManagerInGame
         {
             yield return CurtainBehavior.Instance.HideCoroutine();
             LevelManager.Instance.SwitchState(typeof(LevelStates.Target));
+        }
+        else
+        {
+            GameManager.Instance.SwitchState(typeof(GameStates.Main));
         }
     }
 }

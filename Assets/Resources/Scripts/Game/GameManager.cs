@@ -72,6 +72,9 @@ public class GameManager : AbstractFSM
     {
         yield return new WaitForFixedUpdate();
         yield return CurtainBehavior.Instance.ShowCoroutine();
+        UIManager.Instance.DisableAll();
+        if (curLevel != null) Destroy(curLevel);
+        curLevel = null;
         curMenu = Instantiate(obj, Vector3.zero, Quaternion.identity);
         yield return CurtainBehavior.Instance.HideCoroutine();
         PlayerToBallManager.Instance.EnableInput();

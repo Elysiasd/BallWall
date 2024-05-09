@@ -24,7 +24,7 @@ public class SlideWall : MonoBehaviour
         // 获取子物体上的MoveAlongEdge脚本
         moveScript = GetComponentInChildren<MoveAlongEdge>();
         moveScript.BallExit += () => { isBallCollison = false; ballRb.velocity = initialRelativeVelocity.magnitude *
-            (points[^1] - points[^2]).normalized * config.finalSpeedRate; } ;
+            (points[^1] - points[^2]).normalized * config.FinalSpeedRate; } ;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

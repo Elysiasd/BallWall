@@ -50,7 +50,7 @@ public class PlayerToBallManager : MonoSingleton<PlayerToBallManager>
         mouseUpPos = ballAction.Common.Move.ReadValue<Vector2>();
         force = mouseUpPos - mouseDownPos;
         if (ifInput) { rb.AddForce(force); }
-        
+
 
     };
         ballAction.Common.Read.canceled += ctx =>
@@ -61,11 +61,13 @@ public class PlayerToBallManager : MonoSingleton<PlayerToBallManager>
             {
                 TouchControl tc = ts.touches[0];
                 touchUpPos = tc.position.ReadValue();
-                force = touchUpPos - touchDownPos;
+                force = (touchUpPos - touchDownPos) * Mathf.Log10
+                    (10 + 10 * (ShopManager.Instance.buffs[Archive.Force] +
+                    int.Parse(PlayerPrefs.GetString(Archive.Force, "0"))));
                 if (ifInput) { rb.AddForce(force); } // Applying the force to the Rigidbody
             }
         };
-        
+
     }
     void Update()
     {

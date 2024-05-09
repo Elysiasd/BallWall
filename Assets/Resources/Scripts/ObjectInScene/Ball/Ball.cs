@@ -64,7 +64,7 @@ public class Ball : MonoSingleton<Ball>
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            RB.velocity *= 1 - wallConfig.speedSlowRate;
+            RB.velocity *= 1 - wallConfig.SpeedSlowRate;
         }
 
         //Debug.Log(CollisionManager.Instance.CollisionCnt);

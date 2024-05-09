@@ -39,6 +39,9 @@ public class GameManager : AbstractFSM
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject gameShop;
 
+    [SerializeField] private Camera UICamera;
+    public Camera Camera => UICamera;
+
     private GameObject curLevel;
     private int levelIdx;
     public bool LevelUp()

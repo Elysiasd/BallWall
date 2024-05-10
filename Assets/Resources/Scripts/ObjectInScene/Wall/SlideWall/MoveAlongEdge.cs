@@ -17,14 +17,14 @@ public class MoveAlongEdge : MonoBehaviour
         playerToBallManager = PlayerToBallManager.Instance;
         edgeCollider = transform.parent.GetComponent<EdgeCollider2D>();
 
-        
+
         // 获取EdgeCollider2D上的所有坐标点
         points = edgeCollider.points;
     }
 
     public void Move(Vector2 relativeVelocity)
     {
-       
+
         // 设置移动状态为true
         isMoving = true;
         playerToBallManager.BanInput();
@@ -61,14 +61,14 @@ public class MoveAlongEdge : MonoBehaviour
                 {
                     isMoving = false;
                     ChridrenExit();
-                   
+
                     return;
                 }
                 targetPoint = edgeCollider.transform.TransformPoint(points[currentPointIndex]);
             }
         }
     }
-    public void SetFirstPlace(int firstIndex , int secondIndex ,Vector2 collisionPoint)
+    public void SetFirstPlace(int firstIndex, int secondIndex, Vector2 collisionPoint)
     {
         if (isMoving) return;
         currentPointIndex = firstIndex;
@@ -109,7 +109,7 @@ public class MoveAlongEdge : MonoBehaviour
         this.GetComponentsInChildren<Transform>()[1].parent = null;
         playerToBallManager.ResetInput();
         playerToBallManager.EnableInput();
-        
+
         Ball.Instance.Sliding(false, 0);
 
         BallExit?.Invoke();

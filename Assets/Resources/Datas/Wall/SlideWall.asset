@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SlideWall
   m_EditorClassIdentifier: 
   bounce: 0
-  finalSpeedRate: 7.93
+  finalSpeedRate: 1

@@ -826,6 +826,7 @@ MonoBehaviour:
   - {fileID: 8184532202900851921}
   - {fileID: 7880542752344850844}
   challengeBtn: {fileID: 2755516541685565395}
+  costs: 0a0000000f0000001400000019000000
 --- !u!1 &3711394351139182453
 GameObject:
   m_ObjectHideFlags: 0

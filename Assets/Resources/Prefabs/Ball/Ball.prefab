@@ -5173,6 +5173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3eaeb810887a1d44a415d223d86f44d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: ccc68c779d144484ba1c3ab7c2ca2ec9, type: 3}
   wallConfig: {fileID: 11400000, guid: 2a932f475fe1db64fa438f5ef7565a94, type: 2}
 --- !u!96 &4047876642029169377
 TrailRenderer:

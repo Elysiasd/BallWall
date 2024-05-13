@@ -10,7 +10,9 @@ public class WindParticle : MonoBehaviour
     [SerializeField] private float velocity = 1f;
     [SerializeField] private Mesh mesh;
     [SerializeField] private Material mat;
+    
     [Header("·ç³¡")]
+    [SerializeField] private AudioClip clip;
     [SerializeField] private float force = 2f;
     //private static readonly int matricesID = Shader.PropertyToID("_Matrices");
     private NativeArray<Vector3> pos;
@@ -68,7 +70,7 @@ public class WindParticle : MonoBehaviour
             NextIdx();
         }
 
-        if (isBallIn) Ball.Instance.RB.AddForce(orient * force, ForceMode2D.Force);
+        if (isBallIn && !SlideWall.isBallCollison) Ball.Instance.RB.AddForce(orient * force, ForceMode2D.Force);
     }
     private void NextIdx() => idx = (cnt + idx + 1) % cnt;
     private void InitParticle()
@@ -79,11 +81,18 @@ public class WindParticle : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ball")) isBallIn = true;
+        if (collision.CompareTag("Ball"))
+        {
+            isBallIn = true;
+            AudioManager.Instance.PlayLoop(clip);
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ball")) isBallIn = false;
+        if (collision.CompareTag("Ball")) {
+            isBallIn = false;
+            AudioManager.Instance.StopAll();
+        }
     }
     //private void OnDrawGizmos()
     //{

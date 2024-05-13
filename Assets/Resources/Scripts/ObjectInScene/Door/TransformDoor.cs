@@ -29,8 +29,10 @@ public class TransformDoor : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (collision.gameObject.CompareTag("Ball") && isOpen)
         {
+            AudioManager.Instance.PlayOneShot(Config.audioClip);
             centerDistance = new Vector3(collision.gameObject.transform.position.x - transform.position.x,
                 collision.gameObject.transform.position.y - transform.position.y, collision.gameObject.transform.position.z);
             ball = collision.gameObject;

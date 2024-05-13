@@ -106,6 +106,7 @@ public class MoveAlongEdge : MonoBehaviour
     }
     private void ChridrenExit()
     {
+        AudioManager.Instance.StopAll();
         this.GetComponentsInChildren<Transform>()[1].parent = null;
         playerToBallManager.ResetInput();
         playerToBallManager.EnableInput();

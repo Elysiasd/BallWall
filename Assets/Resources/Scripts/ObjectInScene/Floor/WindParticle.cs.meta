@@ -1,11 +1,12 @@
 fileFormatVersion: 2
-guid: 6101190304013cb47bae5dcd0e576a43
+guid: CXsftCukU3iedOcMaBbPn5KUQDv/tt2APF6LDa/8ka6XxeyEvBh6dQA=
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
   - mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   - mat: {fileID: -876546973899608171, guid: 3b863df50d8643b4e9ab3c4fed8ae92a, type: 3}
+  - clip: {fileID: 8300000, guid: c2e1652948fd6c941ba41c30058bf529, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

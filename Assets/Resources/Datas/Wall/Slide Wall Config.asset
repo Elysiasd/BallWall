@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounce: 0
   finalSpeedRate: 1
+  audioClip1: {fileID: 8300000, guid: b65ae68f40971f3468a69b4bf2a23688, type: 3}
+  audioClip2: {fileID: 0}

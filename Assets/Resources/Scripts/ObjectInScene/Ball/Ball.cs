@@ -11,7 +11,7 @@ public class Ball : MonoSingleton<Ball>
     /// 撞到墙的事件
     /// </summary>
     public event Action OnBallCollision;
-
+    [SerializeField] private AudioClip audioClip;
     private float velocity;
     private bool isSliding;
     public float Velocity => isSliding ? velocity : RB.velocity.magnitude;
@@ -55,6 +55,7 @@ public class Ball : MonoSingleton<Ball>
     {
         if (other.gameObject.CompareTag("Wall"))
         {
+            AudioManager.Instance.PlayOneShot(audioClip);
             OnBallCollision?.Invoke();
         }
 

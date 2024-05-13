@@ -5,5 +5,4 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "µØ¿é/ÆÕÍ¨µØ°å")]
 public class BaseFloorConfig : ScriptableObject
 {
-    
 }

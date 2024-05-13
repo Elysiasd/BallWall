@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class BrokenWall : MonoBehaviour
 {
-    [SerializeField] private AudioClip audioClip;
     public BrokenWallConfig brokenWallConfig;
     public GameObject destroyVFX;
     private Collider2D col;
@@ -39,7 +38,7 @@ public class BrokenWall : MonoBehaviour
     //销毁墙体并且释放粒子效果
     private void DestroyObject()
     {
-        AudioManager.Instance.PlayOneShot(audioClip);
+        AudioManager.Instance.PlayOneShot(brokenWallConfig.audioClip);
         col.enabled = false;
         if (destroyVFX != null)
         {

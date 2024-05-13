@@ -5,8 +5,7 @@ using UnityEngine;
 public class SlideWall : MonoBehaviour
 {
     [SerializeField] private SlideWallConfig config;
-    
-    private bool isBallCollison;
+    public static bool isBallCollison { get; private set; }
     private Rigidbody2D ballRb;
     private MoveAlongEdge moveScript;
     private int nearPointIndex;
@@ -31,6 +30,7 @@ public class SlideWall : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Ball")) return;
         if (isBallCollison) return;
+        AudioManager.Instance.PlayLoop(config.audioClip1);
         isBallCollison=true;
         ballRb = collision.gameObject.GetComponent<Rigidbody2D>();
         initialRelativeVelocity = collision.relativeVelocity;

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: BrokenWallConfig
   m_EditorClassIdentifier: 
   bounce: 0.848
+  audioClip: {fileID: 8300000, guid: 5d5b77a8d7c213a4fbaadd1a65f10152, type: 3}
   criticalVelocity: 10
   speedSlowRate: 0.483

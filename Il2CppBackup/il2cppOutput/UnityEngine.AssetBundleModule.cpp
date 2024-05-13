@@ -216,6 +216,15 @@ struct AssetBundleRequest_tED9F5504E75ED1BCFF8DA9B51F5C7356617E6621_marshaled_pi
 struct AssetBundleRequest_tED9F5504E75ED1BCFF8DA9B51F5C7356617E6621_marshaled_com : public ResourceRequest_tE6953FBA45EAAEFE866C635B9E7852044E62D868_marshaled_com
 {
 };
+struct PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C  : public AssetBundleRequest_tED9F5504E75ED1BCFF8DA9B51F5C7356617E6621
+{
+};
+struct PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C_marshaled_pinvoke : public AssetBundleRequest_tED9F5504E75ED1BCFF8DA9B51F5C7356617E6621_marshaled_pinvoke
+{
+};
+struct PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C_marshaled_com : public AssetBundleRequest_tED9F5504E75ED1BCFF8DA9B51F5C7356617E6621_marshaled_com
+{
+};
 struct String_t_StaticFields
 {
 	String_t* ___Empty;
@@ -381,6 +390,40 @@ IL2CPP_EXTERN_C void AssetBundleRequest_tED9F5504E75ED1BCFF8DA9B51F5C7356617E662
 	IL2CPP_RAISE_MANAGED_EXCEPTION(___m_TypeException, NULL);
 }
 IL2CPP_EXTERN_C void AssetBundleRequest_tED9F5504E75ED1BCFF8DA9B51F5C7356617E6621_marshal_com_cleanup(AssetBundleRequest_tED9F5504E75ED1BCFF8DA9B51F5C7356617E6621_marshaled_com& marshaled)
+{
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+IL2CPP_EXTERN_C void PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C_marshal_pinvoke(const PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C& unmarshaled, PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C_marshaled_pinvoke& marshaled)
+{
+	Exception_t* ___m_TypeException = il2cpp_codegen_get_marshal_directive_exception("Cannot marshal field 'm_Type' of type 'PreDownloadAsAssetRequest': Reference type field marshaling is not supported.");
+	IL2CPP_RAISE_MANAGED_EXCEPTION(___m_TypeException, NULL);
+}
+IL2CPP_EXTERN_C void PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C_marshal_pinvoke_back(const PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C_marshaled_pinvoke& marshaled, PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C& unmarshaled)
+{
+	Exception_t* ___m_TypeException = il2cpp_codegen_get_marshal_directive_exception("Cannot marshal field 'm_Type' of type 'PreDownloadAsAssetRequest': Reference type field marshaling is not supported.");
+	IL2CPP_RAISE_MANAGED_EXCEPTION(___m_TypeException, NULL);
+}
+IL2CPP_EXTERN_C void PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C_marshal_pinvoke_cleanup(PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C_marshaled_pinvoke& marshaled)
+{
+}
+IL2CPP_EXTERN_C void PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C_marshal_com(const PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C& unmarshaled, PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C_marshaled_com& marshaled)
+{
+	Exception_t* ___m_TypeException = il2cpp_codegen_get_marshal_directive_exception("Cannot marshal field 'm_Type' of type 'PreDownloadAsAssetRequest': Reference type field marshaling is not supported.");
+	IL2CPP_RAISE_MANAGED_EXCEPTION(___m_TypeException, NULL);
+}
+IL2CPP_EXTERN_C void PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C_marshal_com_back(const PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C_marshaled_com& marshaled, PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C& unmarshaled)
+{
+	Exception_t* ___m_TypeException = il2cpp_codegen_get_marshal_directive_exception("Cannot marshal field 'm_Type' of type 'PreDownloadAsAssetRequest': Reference type field marshaling is not supported.");
+	IL2CPP_RAISE_MANAGED_EXCEPTION(___m_TypeException, NULL);
+}
+IL2CPP_EXTERN_C void PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C_marshal_com_cleanup(PreDownloadAsAssetRequest_tDC21EF25FCF8C8FA302D5C73ED99D874519FDF5C_marshaled_com& marshaled)
 {
 }
 #ifdef __clang__

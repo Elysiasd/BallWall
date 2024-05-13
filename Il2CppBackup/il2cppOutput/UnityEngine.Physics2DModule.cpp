@@ -632,6 +632,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Component__ctor_m4319162A6E6B02301078C12
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Collider2D_get_offset_Injected_mDB21472D27E7E40EBB270CB307959BEEA9E55783 (Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* ___0_ret, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Collider2D_get_bounds_Injected_mB3F24D39428D3C8E314CC6452878BD9A62C216E4 (Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52* __this, Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3* ___0_ret, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Collider2D_OverlapPoint_Injected_mCD54F37FD8E95A7EF693F7502435017DAD640188 (Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* ___0_point, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Collider2D_CastArray_Internal_Injected_mBB0C68E31C9EC06E54FA1581D4DB75A3AD0DE90F (Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* ___0_direction, float ___1_distance, ContactFilter2D_t54A8515C326BF7DA16E5DE97EA7D3CD9B2F77F14* ___2_contactFilter, bool ___3_ignoreSiblingColliders, RaycastHit2DU5BU5D_t28739C686586993113318B63C84927FD43063FC7* ___4_results, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Collider2D_CastList_Internal_Injected_mB1691F0D6709312632D07F10F4A612437609F2D2 (Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* ___0_direction, float ___1_distance, ContactFilter2D_t54A8515C326BF7DA16E5DE97EA7D3CD9B2F77F14* ___2_contactFilter, bool ___3_ignoreSiblingColliders, List_1_t2EF0515F9247C0F480F55BF3E296366A47CB0324* ___4_results, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t PolygonCollider2D_get_pathCount_m2F7EA6C9D0D7E579741DD3CB26BD1B2320570CC3 (PolygonCollider2D_t7CEFFFEE6522175436B408712B052D236889C89E* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Format_mA8DBB4C2516B9723C5A41E6CB1E2FAF4BBE96DD8 (String_t* ___0_format, RuntimeObject* ___1_arg0, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector2U5BU5D_tFEBBC94BCC6C9C88277BA04047D2B3FDB6ED7FDA* PolygonCollider2D_GetPath_Internal_mEF39269E7021D37741567FE0D6001305DCE49A69 (PolygonCollider2D_t7CEFFFEE6522175436B408712B052D236889C89E* __this, int32_t ___0_index, const RuntimeMethod* method) ;
@@ -2672,6 +2674,28 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Collider2D_OverlapPoint_mF04F862E1CDA270
 		return L_0;
 	}
 }
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Collider2D_CastArray_Internal_m33D435FE40D0366CE73A6B096B7D7619D094777F (Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___0_direction, float ___1_distance, ContactFilter2D_t54A8515C326BF7DA16E5DE97EA7D3CD9B2F77F14 ___2_contactFilter, bool ___3_ignoreSiblingColliders, RaycastHit2DU5BU5D_t28739C686586993113318B63C84927FD43063FC7* ___4_results, const RuntimeMethod* method) 
+{
+	{
+		float L_0 = ___1_distance;
+		bool L_1 = ___3_ignoreSiblingColliders;
+		RaycastHit2DU5BU5D_t28739C686586993113318B63C84927FD43063FC7* L_2 = ___4_results;
+		int32_t L_3;
+		L_3 = Collider2D_CastArray_Internal_Injected_mBB0C68E31C9EC06E54FA1581D4DB75A3AD0DE90F(__this, (&___0_direction), L_0, (&___2_contactFilter), L_1, L_2, NULL);
+		return L_3;
+	}
+}
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Collider2D_CastList_Internal_mDAE8E54A9D7350609D4A8DDD2BACD7F479ABEB2D (Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___0_direction, float ___1_distance, ContactFilter2D_t54A8515C326BF7DA16E5DE97EA7D3CD9B2F77F14 ___2_contactFilter, bool ___3_ignoreSiblingColliders, List_1_t2EF0515F9247C0F480F55BF3E296366A47CB0324* ___4_results, const RuntimeMethod* method) 
+{
+	{
+		float L_0 = ___1_distance;
+		bool L_1 = ___3_ignoreSiblingColliders;
+		List_1_t2EF0515F9247C0F480F55BF3E296366A47CB0324* L_2 = ___4_results;
+		int32_t L_3;
+		L_3 = Collider2D_CastList_Internal_Injected_mB1691F0D6709312632D07F10F4A612437609F2D2(__this, (&___0_direction), L_0, (&___2_contactFilter), L_1, L_2, NULL);
+		return L_3;
+	}
+}
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Collider2D_get_offset_Injected_mDB21472D27E7E40EBB270CB307959BEEA9E55783 (Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* ___0_ret, const RuntimeMethod* method) 
 {
 	typedef void (*Collider2D_get_offset_Injected_mDB21472D27E7E40EBB270CB307959BEEA9E55783_ftn) (Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52*, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7*);
@@ -2695,6 +2719,24 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Collider2D_OverlapPoint_Injected_mCD54F3
 	if (!_il2cpp_icall_func)
 	_il2cpp_icall_func = (Collider2D_OverlapPoint_Injected_mCD54F37FD8E95A7EF693F7502435017DAD640188_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Collider2D::OverlapPoint_Injected(UnityEngine.Vector2&)");
 	bool icallRetVal = _il2cpp_icall_func(__this, ___0_point);
+	return icallRetVal;
+}
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Collider2D_CastArray_Internal_Injected_mBB0C68E31C9EC06E54FA1581D4DB75A3AD0DE90F (Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* ___0_direction, float ___1_distance, ContactFilter2D_t54A8515C326BF7DA16E5DE97EA7D3CD9B2F77F14* ___2_contactFilter, bool ___3_ignoreSiblingColliders, RaycastHit2DU5BU5D_t28739C686586993113318B63C84927FD43063FC7* ___4_results, const RuntimeMethod* method) 
+{
+	typedef int32_t (*Collider2D_CastArray_Internal_Injected_mBB0C68E31C9EC06E54FA1581D4DB75A3AD0DE90F_ftn) (Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52*, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7*, float, ContactFilter2D_t54A8515C326BF7DA16E5DE97EA7D3CD9B2F77F14*, bool, RaycastHit2DU5BU5D_t28739C686586993113318B63C84927FD43063FC7*);
+	static Collider2D_CastArray_Internal_Injected_mBB0C68E31C9EC06E54FA1581D4DB75A3AD0DE90F_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Collider2D_CastArray_Internal_Injected_mBB0C68E31C9EC06E54FA1581D4DB75A3AD0DE90F_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Collider2D::CastArray_Internal_Injected(UnityEngine.Vector2&,System.Single,UnityEngine.ContactFilter2D&,System.Boolean,UnityEngine.RaycastHit2D[])");
+	int32_t icallRetVal = _il2cpp_icall_func(__this, ___0_direction, ___1_distance, ___2_contactFilter, ___3_ignoreSiblingColliders, ___4_results);
+	return icallRetVal;
+}
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Collider2D_CastList_Internal_Injected_mB1691F0D6709312632D07F10F4A612437609F2D2 (Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* ___0_direction, float ___1_distance, ContactFilter2D_t54A8515C326BF7DA16E5DE97EA7D3CD9B2F77F14* ___2_contactFilter, bool ___3_ignoreSiblingColliders, List_1_t2EF0515F9247C0F480F55BF3E296366A47CB0324* ___4_results, const RuntimeMethod* method) 
+{
+	typedef int32_t (*Collider2D_CastList_Internal_Injected_mB1691F0D6709312632D07F10F4A612437609F2D2_ftn) (Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52*, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7*, float, ContactFilter2D_t54A8515C326BF7DA16E5DE97EA7D3CD9B2F77F14*, bool, List_1_t2EF0515F9247C0F480F55BF3E296366A47CB0324*);
+	static Collider2D_CastList_Internal_Injected_mB1691F0D6709312632D07F10F4A612437609F2D2_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Collider2D_CastList_Internal_Injected_mB1691F0D6709312632D07F10F4A612437609F2D2_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Collider2D::CastList_Internal_Injected(UnityEngine.Vector2&,System.Single,UnityEngine.ContactFilter2D&,System.Boolean,System.Collections.Generic.List`1<UnityEngine.RaycastHit2D>)");
+	int32_t icallRetVal = _il2cpp_icall_func(__this, ___0_direction, ___1_distance, ___2_contactFilter, ___3_ignoreSiblingColliders, ___4_results);
 	return icallRetVal;
 }
 #ifdef __clang__

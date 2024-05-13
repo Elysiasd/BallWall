@@ -6,10 +6,10 @@ PlayerSettings:
   serializedVersion: 26
   productGUID: 5ce69d95fadd5f44294350063f459c11
   AndroidProfiler: 0
-  InternalProfiler: 0
+  hmiUseInternalProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 3
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -69,6 +69,7 @@ PlayerSettings:
   androidStartInFullscreen: 1
   androidRenderOutsideSafeArea: 1
   androidUseSwappy: 1
+  androidDisableUnityAndroidVSync: 0
   androidBlitType: 0
   androidResizableWindow: 0
   androidDefaultWindowWidth: 1920
@@ -105,6 +106,7 @@ PlayerSettings:
   macAppStoreCategory: public.app-category.games
   gpuSkinning: 0
   gpuSkinningTransformFeedback: 0
+  vertexShaderSkinning: 0
   xboxPIXTextureCapture: 0
   xboxEnableAvatar: 0
   xboxEnableKinect: 0
@@ -174,7 +176,8 @@ PlayerSettings:
   resetResolutionOnWindowResize: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Android: com.DefaultCompany.BallWall
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -185,7 +188,7 @@ PlayerSettings:
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
-  stripEngineCode: 1
+  stripEngineCode: 0
   iPhoneStrippingLevel: 0
   iPhoneScriptCallOptimization: 0
   ForceInternetPermission: 0
@@ -861,7 +864,8 @@ PlayerSettings:
   scriptingDefineSymbols: {}
   additionalCompilerArguments: {}
   platformArchitecture: {}
-  scriptingBackend: {}
+  scriptingBackend:
+    OpenHarmony: 1
   il2cppCompilerConfiguration: {}
   il2cppCodeGeneration: {}
   managedStrippingLevel:
@@ -884,11 +888,13 @@ PlayerSettings:
   suppressCommonWarnings: 1
   allowUnsafeCode: 0
   useDeterministicCompilation: 1
-  selectedPlatform: 0
+  selectedPlatform: 2
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
+  monoAOTCompilation: 0
   gcIncremental: 1
   gcWBarrierValidation: 0
+  gcAlgorithm: {}
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
@@ -1003,6 +1009,8 @@ PlayerSettings:
   weixinMiniGameMemoryGeometricGrowthCap: 96
   weixinMiniGamePowerPreference: 2
   weixinMiniGameSIMDSupport: 0
+  weixinMiniGamePhysicsEngine: 0
+  weixinMiniGameInjectStrippedMethodLogger: 0
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 

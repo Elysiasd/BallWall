@@ -182,6 +182,10 @@
         "dependencies": []
       },
       {
+        "name": "TextureManager",
+        "dependencies": []
+      },
+      {
         "name": "Tilemap",
         "dependencies": []
       },

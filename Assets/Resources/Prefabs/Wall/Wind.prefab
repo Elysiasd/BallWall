@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3027896246247510924
 BoxCollider2D:
@@ -87,11 +87,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3118919650187644630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6101190304013cb47bae5dcd0e576a43, type: 3}
+  m_Script: {fileID: 11500000, guid: 6916e820dd18a31408a076e26b9a334b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 0.2
-  velocity: 1
+  interval: 0.5
+  velocity: 5
   mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   mat: {fileID: -876546973899608171, guid: 3b863df50d8643b4e9ab3c4fed8ae92a, type: 3}
+  clip: {fileID: 0}
   force: 2

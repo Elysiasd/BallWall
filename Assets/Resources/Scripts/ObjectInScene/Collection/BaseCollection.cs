@@ -15,12 +15,17 @@ public abstract class BaseCollection : MonoBehaviour
 
     private Vector3 origin;
 
+    private float Scale => Mathf.Log10
+                    (10 + 10 * (ShopManager.Instance.buffs[Archive.Force] +
+                    int.Parse(PlayerPrefs.GetString(Archive.Force, "0")))) * 2f;
+
     protected virtual void Start()
     {
         collectionManager = CollectionManager.Instance;
         collectionManager.StartCnt(colName);
 
         origin = transform.position;
+        GetComponent<CircleCollider2D>().radius *= Scale;
     }
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {

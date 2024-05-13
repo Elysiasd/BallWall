@@ -70,6 +70,7 @@ public class Settlement : MonoBehaviour
                 break;
             default: break;
         }
+        ChallengeManager.Instance.ResetChallenge();
 
         yield return NumberRolling(attain, bonus);
         ShopManager.Instance.Attain(attain);

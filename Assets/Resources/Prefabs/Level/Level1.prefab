@@ -67966,21 +67966,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1475095345184511544, guid: 79dfc020e94e6744ab67fa4d8c1eccfe, type: 3}
-      propertyPath: m_Lens.OrthographicSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 4846481384007304748, guid: 79dfc020e94e6744ab67fa4d8c1eccfe, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -5.0000005
-      objectReference: {fileID: 0}
     - target: {fileID: 5013881451974522413, guid: 79dfc020e94e6744ab67fa4d8c1eccfe, type: 3}
       propertyPath: m_Name
       value: Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 5606106421814271885, guid: 79dfc020e94e6744ab67fa4d8c1eccfe, type: 3}
-      propertyPath: orthographic size
-      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

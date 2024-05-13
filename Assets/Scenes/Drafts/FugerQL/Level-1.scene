@@ -210,26 +210,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1077314093251156689, guid: b68860c2b127e414bb45b322dbde7a4b, type: 3}
-      propertyPath: m_DynamicOccludee
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1835169133292990745, guid: b68860c2b127e414bb45b322dbde7a4b, type: 3}
-      propertyPath: m_DynamicOccludee
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6174229842567337932, guid: b68860c2b127e414bb45b322dbde7a4b, type: 3}
-      propertyPath: m_DynamicOccludee
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6765863307013535672, guid: b68860c2b127e414bb45b322dbde7a4b, type: 3}
-      propertyPath: m_Creator
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6858164498322090759, guid: b68860c2b127e414bb45b322dbde7a4b, type: 3}
-      propertyPath: m_DynamicOccludee
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3910181756555987109, guid: de20f3bad80543640be98ef9985ba743, type: 3}
       propertyPath: m_Name
       value: Level1
@@ -281,6 +261,26 @@ PrefabInstance:
     - target: {fileID: 7405915014413368610, guid: de20f3bad80543640be98ef9985ba743, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077314093251156689, guid: b68860c2b127e414bb45b322dbde7a4b, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1835169133292990745, guid: b68860c2b127e414bb45b322dbde7a4b, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6174229842567337932, guid: b68860c2b127e414bb45b322dbde7a4b, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765863307013535672, guid: b68860c2b127e414bb45b322dbde7a4b, type: 3}
+      propertyPath: m_Creator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858164498322090759, guid: b68860c2b127e414bb45b322dbde7a4b, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -27,12 +27,17 @@ public class MainMenuWallUI : MonoBehaviour
                 GameManager.Instance.SwitchState(typeof(GameStates.Shop));
                 break;
             case Type.Exit:
+                StartCoroutine(Exit());
+                break;
+        }
+    }
+    private IEnumerator Exit()
+    {
+        yield return CurtainBehavior.Instance.ShowCoroutine();
 #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false;
 #else
                 Application.Quit();
 #endif
-                break;
-        }
     }
 }

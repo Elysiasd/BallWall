@@ -29,7 +29,6 @@ public class PlayerToBallManager : MonoSingleton<PlayerToBallManager>
         ballAction.Common.Read.started += ctx =>
         {
             mouseDownPos = ballAction.Common.Move.ReadValue<Vector2>();
-
         };
 
         ballAction.Common.Read.started += ctx =>
@@ -55,14 +54,12 @@ public class PlayerToBallManager : MonoSingleton<PlayerToBallManager>
 
         };
         ballAction.Common.Read.canceled += ctx =>
-    {
-        mouseUpPos = ballAction.Common.Move.ReadValue<Vector2>();
-        force = mouseUpPos - mouseDownPos;
-        if (ifInput) { rb.AddForce(force); }
-
-
-    };
-        /*ballAction.Common.Read.canceled += ctx =>
+        {
+            mouseUpPos = ballAction.Common.Move.ReadValue<Vector2>();
+            force = mouseUpPos - mouseDownPos;
+            if (ifInput) { rb.AddForce(force); }
+        };
+        ballAction.Common.Read.canceled += ctx =>
         {
             // Capturing the final touch position when the touch ends
             Touchscreen ts = Touchscreen.current;
@@ -70,10 +67,12 @@ public class PlayerToBallManager : MonoSingleton<PlayerToBallManager>
             {
                 TouchControl tc = ts.touches[0];
                 touchUpPos = tc.position.ReadValue();
-                force = touchUpPos - touchDownPos;
+                force = (touchUpPos - touchDownPos) * Mathf.Log10
+                    (10 + 10 * (ShopManager.Instance.buffs[Archive.Force] +
+                    int.Parse(PlayerPrefs.GetString(Archive.Force, "0"))));
                 if (ifInput) { rb.AddForce(force); } // Applying the force to the Rigidbody
             }
-        };*/
+        };
         ballAction.Common.Read.canceled += ctx =>
         {
             if (isTouching)

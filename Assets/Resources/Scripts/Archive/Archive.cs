@@ -7,8 +7,8 @@ using UnityEngine;
 /// </summary>
 public static class Archive
 {
-    private static string filePath => Application.dataPath + @"GameData.txt";
-    private static Dictionary<string, string> data;
+    //private static string filePath => Application.dataPath + @"GameData.txt";
+    //private static Dictionary<string, string> data;
     /// <summary>
     /// 根据传入的键从<see cref="data"/>获取相应的值
     /// </summary>

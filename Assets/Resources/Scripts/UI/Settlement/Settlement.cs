@@ -53,9 +53,9 @@ public class Settlement : MonoBehaviour
         yield return NumberRolling(config.time, time, finalTime, true);
         yield return NumberRolling(config.interact, interact, finalInteract);
         yield return NumberRolling(config.collection, collection, finalCollection);
-        yield return NumberRolling(10, bonus);
+        yield return NumberRolling(100, bonus);
 
-        ShopManager.Instance.Attain(10);
+        ShopManager.Instance.Attain(100);
 
         yield return new WaitForSeconds(pauseTime);
         LevelManager.Instance.SwitchState(typeof(LevelStates.Shop));

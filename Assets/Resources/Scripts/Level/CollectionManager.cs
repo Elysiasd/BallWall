@@ -34,7 +34,7 @@ public class CollectionManager : AbstractManagerInLevel
     }
     public int CollectionNum(string key)
     {
-        return collections[key];
+        return collections.ContainsKey(key) ? collections[key] : 0;
     }
     public void StartCnt(string key)
     {

@@ -12,7 +12,7 @@ public class LevelShop : MonoBehaviour
     [SerializeField] private Button challengeBtn;
 
     private string[] goods;
-    private int[] costs;
+    [SerializeField] private int[] costs;
     public void OnEnable()
     {
         InitBtns();
@@ -25,11 +25,9 @@ public class LevelShop : MonoBehaviour
     private void InitBtns()
     {
         goods = new string[goodsBtn.Length];
-        costs = new int[goodsBtn.Length];
         for (int i = 0; i < goodsBtn.Length; i++)
         {
             goods[i] = Archive.Buffs[Random.Range(0, Archive.Buffs.Length)];
-            costs[i] = 10 + i * 5;
             FixBtn(i);//不知道为什么直接写就会溢出
         }
     }

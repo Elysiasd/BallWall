@@ -16,7 +16,7 @@ public class BoundWall : MonoBehaviour
         if (collision.gameObject.CompareTag("Ball"))
         {
             ballRb = collision.GetComponent<Rigidbody2D>();
-            ballRb.velocity = -config.bounce * ballRb.velocity;
+            ballRb.velocity = -config.Bounce * ballRb.velocity;
         }
     }
    

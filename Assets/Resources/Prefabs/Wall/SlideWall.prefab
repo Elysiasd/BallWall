@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5645670451559254484}
-  - component: {fileID: 4754284545198535609}
   - component: {fileID: 4681056172078614378}
+  - component: {fileID: 2528733025940153671}
   m_Layer: 7
   m_Name: Point
   m_TagString: Untagged
@@ -33,18 +33,6 @@ Transform:
   m_Father: {fileID: 7609656769713609512}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4754284545198535609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335728657368469989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e9e1e38b37e7f45ab2bb73df9e3f1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &4681056172078614378
 Rigidbody2D:
   serializedVersion: 4
@@ -72,6 +60,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2528733025940153671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335728657368469989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e9e1e38b37e7f45ab2bb73df9e3f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2408416226626447310
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,8 +150,8 @@ SpriteShapeRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1653431605
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
@@ -402,4 +402,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0cab967b84e6104a812cf3790edcc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 6adcab81c4884b04da0b729d543ca51f, type: 2}
+  config: {fileID: 11400000, guid: 5c795ff3f01b97d46a395b8bb39cc98b, type: 2}

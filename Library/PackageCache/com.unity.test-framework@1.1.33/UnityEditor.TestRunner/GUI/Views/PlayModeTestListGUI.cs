@@ -31,7 +31,6 @@ namespace UnityEditor.TestTools.TestRunner.GUI
             switch (EditorUserBuildSettings.activeBuildTarget)
             {
                 case BuildTarget.Android:
-                case BuildTarget.HMIAndroid:
                     if (EditorUserBuildSettings.exportAsGoogleAndroidProject)
                         return "Export";
                     break;

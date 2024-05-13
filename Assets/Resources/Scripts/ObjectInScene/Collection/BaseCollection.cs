@@ -1,10 +1,10 @@
-using System.Collections;
+锘縰sing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 /// <summary>
-/// 基本的收集品的属性和函数
+/// 鍩烘湰鐨勬敹闆嗗搧鐨勫睘鎬у拰鍑芥暟
 /// </summary>
 public abstract class BaseCollection : MonoBehaviour
 {

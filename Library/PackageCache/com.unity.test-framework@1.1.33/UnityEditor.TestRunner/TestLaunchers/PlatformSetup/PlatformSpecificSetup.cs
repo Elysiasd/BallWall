@@ -114,7 +114,6 @@ namespace UnityEditor.TestTools.TestRunner
                 {BuildTarget.XboxOne, m_XboxOnePlatformSetup},
 #endif
                 {BuildTarget.Android, m_AndroidPlatformSetup},
-                {BuildTarget.HMIAndroid, m_AndroidPlatformSetup},
                 {BuildTarget.WSAPlayer, m_UwpPlatformSetup},
                 {BuildTarget.Lumin, m_LuminPlatformSetup},
 #if UNITY_2019_3_OR_NEWER

@@ -7,7 +7,6 @@ EditorBuildSettings:
   m_Scenes: []
   m_configObjects: {}
   m_SlimFeaturesWeixinMiniGame:
-    AllocateOverhead: 1
     DecompressASTC: 0
     DecompressDXT: 1
     DecompressETC: 1

@@ -387,7 +387,6 @@ namespace TMPro
                 switch (Application.platform)
                 {
                     case RuntimePlatform.Android:
-                    case RuntimePlatform.OpenHarmony:
                     case RuntimePlatform.IPhonePlayer:
                     case RuntimePlatform.tvOS:
                         return m_HideMobileInput;
@@ -401,7 +400,6 @@ namespace TMPro
                 switch(Application.platform)
                 {
                     case RuntimePlatform.Android:
-                    case RuntimePlatform.OpenHarmony:
                     case RuntimePlatform.IPhonePlayer:
                     case RuntimePlatform.tvOS:
                         SetPropertyUtility.SetStruct(ref m_HideMobileInput, value);
@@ -420,7 +418,6 @@ namespace TMPro
                 switch (Application.platform)
                 {
                     case RuntimePlatform.Android:
-                    case RuntimePlatform.OpenHarmony:
                     case RuntimePlatform.IPhonePlayer:
                     case RuntimePlatform.tvOS:
                     case RuntimePlatform.WSAPlayerX86:
@@ -445,7 +442,6 @@ namespace TMPro
                 switch (Application.platform)
                 {
                     case RuntimePlatform.Android:
-                    case RuntimePlatform.OpenHarmony:
                     case RuntimePlatform.IPhonePlayer:
                     case RuntimePlatform.tvOS:
                     case RuntimePlatform.WSAPlayerX86:
@@ -479,7 +475,6 @@ namespace TMPro
             switch (Application.platform)
             {
                 case RuntimePlatform.Android:
-                case RuntimePlatform.OpenHarmony:
                 case RuntimePlatform.IPhonePlayer:
                 case RuntimePlatform.tvOS:
                 #if UNITY_2020_2_OR_NEWER
@@ -1625,7 +1620,7 @@ namespace TMPro
                     SendOnValueChangedAndUpdateLabel();
                 }
             }
-            else if (m_HideMobileInput && (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.OpenHarmony))
+            else if (m_HideMobileInput && Application.platform == RuntimePlatform.Android)
             {
                 UpdateStringPositionFromKeyboard();
             }

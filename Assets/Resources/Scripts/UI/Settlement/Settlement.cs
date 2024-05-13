@@ -36,7 +36,7 @@ public class Settlement : MonoBehaviour
     {
         judgeIdx = 0;
 
-        targetTime.text = config.time.ToString();
+        targetTime.text = config.Time.ToString();
         targetInteract.text = config.interact.ToString();
         targetCollection.text = config.collection.ToString();
         finalTime.text = finalInteract.text = finalCollection.text = "";
@@ -51,16 +51,31 @@ public class Settlement : MonoBehaviour
         yield return new WaitUntil(() => startCount);
         LevelUp();
 
-        yield return NumberRolling(config.time, time, finalTime, true);
-        yield return NumberRolling(config.interact, interact, finalInteract);
+        yield return NumberRolling(config.Time, time, finalTime, true);
+        yield return NumberRolling(config.interact, interact, finalInteract,
+            ChallengeManager.Instance.CurMode == ChallengeManager.Mode.Interact);
         yield return NumberRolling(config.collection, collection, finalCollection);
 
         attain = (judgeIdx - 1) * 10 + collection;
-        yield return NumberRolling(attain, bonus);
 
+        switch (ChallengeManager.Instance.CurMode)
+        {
+            case ChallengeManager.Mode.Interact:
+                if (interact < config.interact)
+                    attain += ChallengeManager.Instance.CurInfo.bonus;
+                break;
+            case ChallengeManager.Mode.Time:
+                if (time < config.Time)
+                    attain += ChallengeManager.Instance.CurInfo.bonus;
+                break;
+            default: break;
+        }
+
+        yield return NumberRolling(attain, bonus);
         ShopManager.Instance.Attain(attain);
 
         yield return new WaitForSeconds(pauseTime);
+
         LevelManager.Instance.SwitchState(typeof(LevelStates.Shop));
         gameObject.SetActive(false);
     }

@@ -2323,6 +2323,10 @@ PrefabInstance:
       propertyPath: m_Points.Array.data[13].y
       value: -0.9016482
       objectReference: {fileID: 0}
+    - target: {fileID: 5171030412592465596, guid: 0cb2fbf0207a5284c834328a6c13a281, type: 3}
+      propertyPath: showSoul
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5581012702133000447, guid: 0cb2fbf0207a5284c834328a6c13a281, type: 3}
       propertyPath: m_Creator
       value: 

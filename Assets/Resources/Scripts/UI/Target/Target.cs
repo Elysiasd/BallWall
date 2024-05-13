@@ -22,6 +22,18 @@ public class Target : MonoBehaviour
         this.time.text = time.ToString();
         this.interact.text = interact.ToString();
         this.collection.text = collection.ToString();
+
+        switch (ChallengeManager.Instance.CurMode)
+        {
+            case ChallengeManager.Mode.Time:
+                this.time.color = Color.red;
+                break;
+            case ChallengeManager.Mode.Interact:
+                this.interact.color = Color.red;
+                break;
+            default: break;
+        }
+
         yield return new WaitUntil(() => shrunk);
         LevelManager.Instance.SwitchState(typeof(LevelStates.Run));
     }

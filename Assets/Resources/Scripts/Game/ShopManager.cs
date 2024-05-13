@@ -14,7 +14,11 @@ public class ShopManager : AbstractManagerInGame
         }
     }
     public override int Order => 8;
-    public override void Init() => instance = this;
+    public override void Init()
+    {
+        instance = this;
+        ResetAll();
+    }
 
     /// <summary>
     /// 芝士关卡内货币

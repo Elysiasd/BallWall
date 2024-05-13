@@ -10,4 +10,7 @@ public class LevelConfig : ScriptableObject
     public int time;
     public int interact;
     public int collection;
+
+    public int Time => ChallengeManager.Instance.CurMode ==
+        ChallengeManager.Mode.Time ? (int)(time * .8f) : time;
 }

@@ -27,6 +27,20 @@ namespace UnityEditor.TestTools.TestRunner
                         }
                     }
                 }),
+            new TestSetting<string>(
+                settings => settings.Architecture,
+                () => EditorUserBuildSettings.activeBuildTarget == BuildTarget.HMIAndroid ? PlayerSettings.Android.targetArchitectures.ToString() : null,
+                architecture =>
+                {
+                    if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.HMIAndroid)
+                    {
+                        if (!string.IsNullOrEmpty(architecture))
+                        {
+                            var targetArchitectures = (AndroidArchitecture)Enum.Parse(typeof(AndroidArchitecture), architecture, true);
+                            PlayerSettings.Android.targetArchitectures = targetArchitectures;
+                        }
+                    }
+                }),
             new TestSetting<ApiCompatibilityLevel?>(
                 settings => settings.apiProfile,
                 () => PlayerSettings.GetApiCompatibilityLevel(EditorUserBuildSettings.activeBuildTargetGroup),

@@ -10,7 +10,7 @@ public class WindParticle : MonoBehaviour
     [SerializeField] private float velocity = 1f;
     [SerializeField] private Mesh mesh;
     [SerializeField] private Material mat;
-    
+
     [Header("·ç³¡")]
     [SerializeField] private AudioClip clip;
     [SerializeField] private float force = 2f;
@@ -51,8 +51,16 @@ public class WindParticle : MonoBehaviour
         pos.Dispose();
         scales.Dispose();
     }
+    private void OnApplicationQuit() => OnDisable();
     private void Update()
     {
+        timer += Time.deltaTime;
+        if (timer > interval)
+        {
+            timer = 0;
+            InitParticle();
+            NextIdx();
+        }
         for (int i = 0; i < cnt; i++)
         {
             pos[i] += (Vector3)orient.normalized * Time.deltaTime * velocity;
@@ -62,15 +70,8 @@ public class WindParticle : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        timer += Time.fixedDeltaTime;
-        if (timer > interval)
-        {
-            timer = 0;
-            InitParticle();
-            NextIdx();
-        }
-
-        if (isBallIn && !SlideWall.isBallCollison) Ball.Instance.RB.AddForce(orient * force, ForceMode2D.Force);
+        if (isBallIn && !SlideWall.isBallCollison)
+            Ball.Instance.RB.AddForce(orient * force, ForceMode2D.Force);
     }
     private void NextIdx() => idx = (cnt + idx + 1) % cnt;
     private void InitParticle()
@@ -89,7 +90,8 @@ public class WindParticle : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ball")) {
+        if (collision.CompareTag("Ball"))
+        {
             isBallIn = false;
             AudioManager.Instance.StopAll();
         }

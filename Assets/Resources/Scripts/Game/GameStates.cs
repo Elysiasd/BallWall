@@ -35,5 +35,9 @@ public class GameStates
             GameManager.Instance.LevelInit();
             ShopManager.Instance.ResetAll();
         }
+        public override void OnExit()
+        {
+            SoulManager.Instance.Attain(ShopManager.Instance.Money);
+        }
     }
 }

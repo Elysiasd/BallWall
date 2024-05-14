@@ -27,6 +27,7 @@ public class Settlement : MonoBehaviour
     private int num;
 
     private int judgeIdx;
+    private int attain;
 
     [HideInInspector] public bool startCount;
 
@@ -35,7 +36,7 @@ public class Settlement : MonoBehaviour
     {
         judgeIdx = 0;
 
-        targetTime.text = config.time.ToString();
+        targetTime.text = config.Time.ToString();
         targetInteract.text = config.interact.ToString();
         targetCollection.text = config.collection.ToString();
         finalTime.text = finalInteract.text = finalCollection.text = "";
@@ -50,14 +51,32 @@ public class Settlement : MonoBehaviour
         yield return new WaitUntil(() => startCount);
         LevelUp();
 
-        yield return NumberRolling(config.time, time, finalTime, true);
-        yield return NumberRolling(config.interact, interact, finalInteract);
+        yield return NumberRolling(config.Time, time, finalTime, true);
+        yield return NumberRolling(config.interact, interact, finalInteract,
+            ChallengeManager.Instance.CurMode == ChallengeManager.Mode.Interact);
         yield return NumberRolling(config.collection, collection, finalCollection);
-        yield return NumberRolling(100, bonus);
 
-        ShopManager.Instance.Attain(100);
+        attain = (judgeIdx - 1) * 10 + collection;
+
+        switch (ChallengeManager.Instance.CurMode)
+        {
+            case ChallengeManager.Mode.Interact:
+                if (interact < config.interact)
+                    attain += ChallengeManager.Instance.CurInfo.bonus;
+                break;
+            case ChallengeManager.Mode.Time:
+                if (time < config.Time)
+                    attain += ChallengeManager.Instance.CurInfo.bonus;
+                break;
+            default: break;
+        }
+        ChallengeManager.Instance.ResetChallenge();
+
+        yield return NumberRolling(attain, bonus);
+        ShopManager.Instance.Attain(attain);
 
         yield return new WaitForSeconds(pauseTime);
+
         LevelManager.Instance.SwitchState(typeof(LevelStates.Shop));
         gameObject.SetActive(false);
     }

@@ -66,6 +66,7 @@ public class GameManager : AbstractFSM
         curLevel = Instantiate(levels[levelIdx], Vector3.zero, Quaternion.identity);
         yield return CurtainBehavior.Instance.HideCoroutine();
         LevelManager.Instance.SwitchState(typeof(LevelStates.Target));
+        ChallengeManager.Instance.ResetChallenge();
     }
 
     private GameObject curMenu;

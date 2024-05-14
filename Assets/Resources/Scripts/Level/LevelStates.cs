@@ -17,7 +17,7 @@ public class LevelStates
         public override void OnEnter()
         {
             UIManager.Instance.ActivateTarget().Show
-                (LevelManager.Instance.Config.time,
+                (LevelManager.Instance.Config.Time,
                 LevelManager.Instance.Config.interact,
                 LevelManager.Instance.Config.collection);
         }

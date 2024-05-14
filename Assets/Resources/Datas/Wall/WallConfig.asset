@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85db3fcea5ae97849a6ca8a5bccaf12d, type: 3}
   m_Name: WallConfig
   m_EditorClassIdentifier: 
-  bounce: 0.808
+  bounce: 0.4

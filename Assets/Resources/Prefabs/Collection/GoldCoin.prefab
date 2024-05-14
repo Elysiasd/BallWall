@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e21bfa31d35ccc44b839445b8069acce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: a695263785098224395992f0220cd408, type: 3}
+  clip: {fileID: 0}
   collectTime: 1
 --- !u!58 &-5018554430039605284
 CircleCollider2D:

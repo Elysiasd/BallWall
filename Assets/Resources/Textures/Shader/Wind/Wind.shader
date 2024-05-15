@@ -7,7 +7,7 @@ Shader "Custom/Wind"
     SubShader{
         CGPROGRAM
         #pragma surface ConfigureSurface Standard fullforwardshadows addshadow
-        #pragma multi_compile_instancing
+        //#pragma instancing_options assumeuniformscaling procedual:ConfigureProcedural
         #pragma target 4.5
 
         #include "WindFunc.hlsl"

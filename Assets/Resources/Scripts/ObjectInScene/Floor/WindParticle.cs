@@ -1,4 +1,4 @@
-using Unity.Burst;
+ï»¿using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
@@ -10,12 +10,12 @@ public class WindParticle : MonoBehaviour
 {
     private Vector2 shape = new Vector2(2, .1f);
     private int cnt;
-    [Header("Á£×Ó")]
+    [Header("ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField] private float interval = .2f;
     [SerializeField] private float velocity = 1f;
     [SerializeField] private Mesh mesh;
     [SerializeField] private Material mat;
-    [Header("·ç³¡")]
+    [Header("ï¿½ç³¡")]
     [SerializeField] private float force = 2f;
     private static readonly int matricesID = Shader.PropertyToID("_Matrices");
     private NativeArray<Vector3> pos;

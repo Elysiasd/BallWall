@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BrokenWall : MonoBehaviour
@@ -6,14 +5,11 @@ public class BrokenWall : MonoBehaviour
     public BrokenWallConfig brokenWallConfig;
     public GameObject destroyVFX;
     private Collider2D col;
-    private EdgeCollider2D edge;
-    private Vector2 midPoint;
     void Start()
     {
 
         col = GetComponent<Collider2D>();
-        edge = GetComponent<EdgeCollider2D>();
-        midPoint = edge.points[edge.points.Length/2];
+
         Ball.Instance.OnBallReachVelocity += IsTrigger;
         Ball.Instance.OnBallReturnVelocity += IsCollider;
     }
@@ -46,7 +42,7 @@ public class BrokenWall : MonoBehaviour
         col.enabled = false;
         if (destroyVFX != null)
         {
-            Instantiate(destroyVFX, transform.position + (Vector3) midPoint, transform.rotation);
+            Instantiate(destroyVFX, transform.position, transform.rotation);
         }
         Destroy(gameObject);
     }

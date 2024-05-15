@@ -10,12 +10,12 @@ public class WindParticle : MonoBehaviour
 {
     private Vector2 shape = new Vector2(2, .1f);
     private int cnt;
-    [Header("����")]
+    [Header("粒子")]
     [SerializeField] private float interval = .2f;
     [SerializeField] private float velocity = 1f;
     [SerializeField] private Mesh mesh;
     [SerializeField] private Material mat;
-    [Header("�糡")]
+    [Header("风场")]
     [SerializeField] private float force = 2f;
     private static readonly int matricesID = Shader.PropertyToID("_Matrices");
     private NativeArray<Vector3> pos;

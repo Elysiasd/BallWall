@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: TransformDoor
   m_EditorClassIdentifier: 
   bounce: 0
+  audioClip: {fileID: 8300000, guid: 917fb5a1926b2424ca4521c756aa9e04, type: 3}
   TransformBreakTime: 0.1
   SlowRate: 0.631

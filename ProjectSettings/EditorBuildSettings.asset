@@ -4,9 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Drafts/FugerQL/Level-1.scene
+    guid: bafcab0925a05d041a037c8065a7612b
   m_configObjects: {}
   m_SlimFeaturesWeixinMiniGame:
+    AllocateOverhead: 1
     DecompressASTC: 0
     DecompressDXT: 1
     DecompressETC: 1

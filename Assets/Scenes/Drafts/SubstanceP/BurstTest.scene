@@ -167,13 +167,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1357627811}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6101190304013cb47bae5dcd0e576a43, type: 3}
+  m_Script: {fileID: 11500000, guid: 6916e820dd18a31408a076e26b9a334b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 0.2
+  interval: 0.1
   velocity: 1
   mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-  mat: {fileID: -876546973899608171, guid: 3b863df50d8643b4e9ab3c4fed8ae92a, type: 3}
+  mat: {fileID: 2100000, guid: 118e6c8f479f9334fb80ac3b45214957, type: 2}
   force: 2
 --- !u!61 &1357627815
 BoxCollider2D:

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: WindFloor
   m_EditorClassIdentifier: 
   windForce: 3
+  audioClip: {fileID: 0}
   windVector: {x: 1, y: 1}
